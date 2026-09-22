@@ -1,0 +1,373 @@
+{
+  "upstreamCommit": "53e579f1481697931fc44f5445171397cfa2b24b",
+  "skills": [
+    {
+      "source": "automations/benny/skills/reproduce-and-fix-issues/SKILL.md",
+      "target": "docs/benny.md",
+      "status": "requires-external-integration",
+      "behaviorTested": false
+    },
+    {
+      "source": "automations/benny/skills/setup-benny/SKILL.md",
+      "target": "docs/benny.md",
+      "status": "requires-external-integration",
+      "behaviorTested": false
+    },
+    {
+      "source": "automations/benny/skills/triage-issue-reports/SKILL.md",
+      "target": "docs/benny.md",
+      "status": "requires-external-integration",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/architect/SKILL.md",
+      "target": "core/workflows/architect.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/arena/SKILL.md",
+      "target": "core/workflows/arena.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/automate-me/SKILL.md",
+      "target": "core/workflows/automate-me.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/blast-radius/SKILL.md",
+      "target": "core/workflows/blast-radius.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/bro/SKILL.md",
+      "target": "core/workflows/bro.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/create-verification-skill/SKILL.md",
+      "target": "core/workflows/create-verification-skill.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/figure-it-out/SKILL.md",
+      "target": "core/workflows/figure-it-out.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/how/SKILL.md",
+      "target": "core/workflows/how.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/interrogate/SKILL.md",
+      "target": "core/workflows/interrogate.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/maintain-verification-skill/SKILL.md",
+      "target": "core/workflows/maintain-verification-skill.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/make-bot-ui/SKILL.md",
+      "target": "core/workflows/make-bot-ui.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/no-comments/SKILL.md",
+      "target": "core/workflows/no-comments.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/poteto-mode/SKILL.md",
+      "target": "core/workflows/poteto-mode.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-attack-the-premise/SKILL.md",
+      "target": "core/references/principles/principle-attack-the-premise.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-boundary-discipline/SKILL.md",
+      "target": "core/references/principles/principle-boundary-discipline.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-build-the-lever/SKILL.md",
+      "target": "core/references/principles/principle-build-the-lever.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-encode-lessons-in-structure/SKILL.md",
+      "target": "core/references/principles/principle-encode-lessons-in-structure.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-exhaust-the-design-space/SKILL.md",
+      "target": "core/references/principles/principle-exhaust-the-design-space.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-experience-first/SKILL.md",
+      "target": "core/references/principles/principle-experience-first.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-fix-root-causes/SKILL.md",
+      "target": "core/references/principles/principle-fix-root-causes.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-foundational-thinking/SKILL.md",
+      "target": "core/references/principles/principle-foundational-thinking.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-guard-the-context-window/SKILL.md",
+      "target": "core/references/principles/principle-guard-the-context-window.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-laziness-protocol/SKILL.md",
+      "target": "core/references/principles/principle-laziness-protocol.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-make-operations-idempotent/SKILL.md",
+      "target": "core/references/principles/principle-make-operations-idempotent.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+      "target": "core/references/principles/principle-migrate-callers-then-delete-legacy-apis.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-minimize-reader-load/SKILL.md",
+      "target": "core/references/principles/principle-minimize-reader-load.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-model-the-domain/SKILL.md",
+      "target": "core/references/principles/principle-model-the-domain.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-never-block-on-the-human/SKILL.md",
+      "target": "core/references/principles/principle-never-block-on-the-human.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-outcome-oriented-execution/SKILL.md",
+      "target": "core/references/principles/principle-outcome-oriented-execution.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-prove-it-works/SKILL.md",
+      "target": "core/references/principles/principle-prove-it-works.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-redesign-from-first-principles/SKILL.md",
+      "target": "core/references/principles/principle-redesign-from-first-principles.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-separate-before-serializing-shared-state/SKILL.md",
+      "target": "core/references/principles/principle-separate-before-serializing-shared-state.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-sequence-verifiable-units/SKILL.md",
+      "target": "core/references/principles/principle-sequence-verifiable-units.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-subtract-before-you-add/SKILL.md",
+      "target": "core/references/principles/principle-subtract-before-you-add.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-test-behavior-not-implementation/SKILL.md",
+      "target": "core/references/principles/principle-test-behavior-not-implementation.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/principle-type-system-discipline/SKILL.md",
+      "target": "core/references/principles/principle-type-system-discipline.md",
+      "status": "adapted-reference",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/recall/SKILL.md",
+      "target": "core/workflows/recall.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/reflect/SKILL.md",
+      "target": "core/workflows/reflect.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/setup-pstack/SKILL.md",
+      "target": "core/workflows/setup-pstack.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/show-me-your-work/SKILL.md",
+      "target": "core/workflows/show-me-your-work.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/swarm/SKILL.md",
+      "target": "core/workflows/swarm.md",
+      "status": "adapted-workflow",
+      "behaviorTested": [
+        "codex",
+        "claude-code"
+      ]
+    },
+    {
+      "source": "skills/tdd/SKILL.md",
+      "target": "core/workflows/tdd.md",
+      "status": "adapted-workflow",
+      "behaviorTested": [
+        "codex",
+        "claude-code"
+      ]
+    },
+    {
+      "source": "skills/teach/SKILL.md",
+      "target": "core/workflows/teach.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/technical-writing/SKILL.md",
+      "target": "core/workflows/technical-writing.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/typescript-best-practices/SKILL.md",
+      "target": "core/workflows/typescript-best-practices.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/unslop/SKILL.md",
+      "target": "core/workflows/unslop.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    },
+    {
+      "source": "skills/why/SKILL.md",
+      "target": "core/workflows/why.md",
+      "status": "adapted-workflow",
+      "behaviorTested": false
+    }
+  ],
+  "runtime": [
+    {
+      "name": "orch",
+      "target": "tools/orch",
+      "status": "reused-optional",
+      "limit": "账本不调度；frontier 需要 gt，证据不自动核验"
+    },
+    {
+      "name": "watch-pr",
+      "target": "tools/watch-pr",
+      "status": "reused-optional",
+      "limit": "只读监听；需要 gh，不自动修复或合并"
+    },
+    {
+      "name": "bootstrap",
+      "target": "tools/bootstrap.ts",
+      "status": "adapted",
+      "limit": "显式安装依赖，不自动联网"
+    },
+    {
+      "name": "check-plan",
+      "target": "scripts/check_plan.py",
+      "status": "replaced",
+      "limit": "JSON 计划契约，不兼容上游固定十 lane Markdown 模板"
+    },
+    {
+      "name": "worktree-audit",
+      "target": "scripts/worktree_audit.py",
+      "status": "replaced",
+      "limit": "只读清单，不自动判定删除或扫描聊天/模拟器"
+    },
+    {
+      "name": "model-routing",
+      "target": "adapters",
+      "status": "adapted",
+      "limit": "继承宿主模型，不保证跨供应商池"
+    },
+    {
+      "name": "sticky-mode",
+      "target": "core/workflows/poteto-mode.md",
+      "status": "changed",
+      "limit": "任务内入口，无全局 sticky reminder"
+    },
+    {
+      "name": "durable-wake-cloud",
+      "target": "core/playbooks/autonomous-run.md",
+      "status": "host-dependent",
+      "limit": "不提供托管云或持久 scheduler"
+    },
+    {
+      "name": "grokbot-ui",
+      "target": "core/workflows/make-bot-ui.md",
+      "status": "requires-external-integration",
+      "limit": "缺平台 API 时阻塞"
+    },
+    {
+      "name": "decision-log",
+      "target": "core/workflows/show-me-your-work.md",
+      "status": "adapted",
+      "limit": "保存 TSV，不是持久事务队列"
+    }
+  ]
+}

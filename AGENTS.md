@@ -1,0 +1,1 @@
+回答、文档和新注释使用简体中文。core 是迁移内容的唯一来源；skills 由 scripts/build.py 生成。vendor 保留固定版本原文用于追溯，不作为运行指令。改动后运行 python3 -m unittest discover -s tests -v 和 python3 scripts/build.py --check。模型行为测试只在隔离目录执行，不修改全局配置，不发送消息或发布。

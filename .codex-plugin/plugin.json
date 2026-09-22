@@ -1,0 +1,18 @@
+{
+  "name": "pstack-portable",
+  "version": "0.1.0",
+  "description": "pstack 的非官方跨宿主移植，共用工作流、原生委派与真实验证。",
+  "author": {
+    "name": "huangkairan"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Pstack Portable",
+    "shortDescription": "按需使用 pstack 工作流。",
+    "longDescription": "pstack 的非官方跨宿主移植，共用工作流、原生委派与真实验证。",
+    "developerName": "huangkairan",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "使用 pstack 调查、实现或验证当前任务。"
+  }
+}

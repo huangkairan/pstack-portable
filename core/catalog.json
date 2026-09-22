@@ -1,0 +1,74 @@
+{
+  "how": {
+    "description": "从源码解释机制、调用链、数据归属和模块边界；适用于理解系统或修改前调查。"
+  },
+  "why": {
+    "description": "从代码历史和决策记录追溯设计动机，用于解释为何这样设计。"
+  },
+  "architect": {
+    "description": "从调用用法推导数据结构和模块边界，用于实质性架构设计。"
+  },
+  "arena": {
+    "description": "对同一设计或代码任务生成独立候选、评审并合成，用于明确要求竞赛或高代价选择。"
+  },
+  "swarm": {
+    "description": "将可独立的调查、覆盖或实验切片并行执行，用于明确需要多代理覆盖的任务。"
+  },
+  "interrogate": {
+    "description": "让独立评审者攻击方案的关键前提，用于争议设计或需要反证的决策。"
+  },
+  "blast-radius": {
+    "description": "分析 diff 的影响范围并验证最关键的安全前提，用于变更审查。"
+  },
+  "figure-it-out": {
+    "description": "为跨阶段迁移或没有现成流程的复杂任务制定并执行可验证计划。"
+  },
+  "poteto-mode": {
+    "description": "选择 pstack 的调查、修复、实现或审查流程；用户希望采用 poteto 工作方式时使用。"
+  },
+  "setup-pstack": {
+    "description": "检查 pstack 的宿主、工具和项目能力，配置有限并发与模型角色。"
+  },
+  "tdd": {
+    "description": "修复具有明确低成本测试路径的 bug，或用户明确要求 TDD、回归测试时使用。"
+  },
+  "create-verification-skill": {
+    "description": "为当前项目创建可真实启动、操作、取证和清理的验证技能。"
+  },
+  "maintain-verification-skill": {
+    "description": "根据实际失败、功能变化或过期操作更新现有项目验证技能。"
+  },
+  "recall": {
+    "description": "读取用户指定的当前任务记录，恢复已做决策与未完成工作。"
+  },
+  "reflect": {
+    "description": "根据明确范围的任务记录复盘决策和重复失误，不自动修改长期记忆。"
+  },
+  "automate-me": {
+    "description": "从用户授权的历史样本提取可重复偏好，生成个人工作模式。"
+  },
+  "show-me-your-work": {
+    "description": "为多轮或无人值守任务记录可审计的决策和实测证据。"
+  },
+  "no-comments": {
+    "description": "在用户要求精简注释时，将可由代码表达的解释落实为命名与结构。"
+  },
+  "unslop": {
+    "description": "编辑已有文字，去掉空话、重复和不清楚的表达，同时保留事实与限制。"
+  },
+  "bro": {
+    "description": "把上一条解释重述为更易理解的语言，不增加新事实。"
+  },
+  "technical-writing": {
+    "description": "撰写或编辑技术文档、RFC、README、PR 描述与提交说明。"
+  },
+  "make-bot-ui": {
+    "description": "为已具备状态与消息控制接口的机器人设计或实现 UI；缺少接口时明确集成条件。"
+  },
+  "teach": {
+    "description": "根据源码与实际例子讲解概念，帮助用户建立可检验的理解。"
+  },
+  "typescript-best-practices": {
+    "description": "在 TypeScript 实现或审查中改进边界、类型与可维护性。"
+  }
+}

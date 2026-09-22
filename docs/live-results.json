@@ -1,0 +1,84 @@
+[
+  {
+    "host": "codex",
+    "exitCode": 0,
+    "seconds": 59.1,
+    "case": "tdd",
+    "independentAssertionsPassed": true,
+    "changedTrackedFiles": [
+      "cart.py",
+      "test_cart.py"
+    ],
+    "state": "passed",
+    "skillReadObserved": true,
+    "failedBeforeObserved": true,
+    "passingTestCount": 3
+  },
+  {
+    "host": "claude-code",
+    "exitCode": 0,
+    "seconds": 44.4,
+    "case": "tdd",
+    "independentAssertionsPassed": true,
+    "changedTrackedFiles": [
+      "cart.py",
+      "test_cart.py"
+    ],
+    "state": "passed",
+    "costUsd": 0.289369,
+    "skillReadObserved": true,
+    "failedBeforeObserved": true,
+    "passingTestCount": 4
+  },
+  {
+    "host": "claude-code",
+    "case": "delegation",
+    "state": "passed",
+    "exitCode": 0,
+    "costUsd": 0.8245385000000001,
+    "subagents": {
+      "spawned": 2,
+      "requested": {
+        "background": 0,
+        "foreground": 2,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 1,
+      "spawned_by_subagents": 0,
+      "completed": 2,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {
+        "pstack-portable:pstack-reviewer": 2
+      }
+    },
+    "trackedFilesUnchanged": true
+  },
+  {
+    "host": "codex",
+    "case": "delegation",
+    "state": "passed",
+    "exitCode": 0,
+    "seconds": 143.3,
+    "nativeSpawnCalls": 2,
+    "childFinalAnswers": 2,
+    "childTaskCompleteEvents": 2,
+    "childCommands": [
+      "nl -ba stock.py",
+      "nl -ba price.py"
+    ],
+    "trackedFilesUnchanged": true,
+    "sandbox": "read-only",
+    "namedRoleInstantiationVerified": false
+  }
+]
