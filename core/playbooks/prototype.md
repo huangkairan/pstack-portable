@@ -1,3 +1,3 @@
 # prototype
 
-明确需要观察才能决定的问题与最低成本实验。隔离目录中构建可丢弃原型，必要时比较变体，运行实际交互后给证据和建议。只为该问题搭建，不把原型声称为生产交付；用户要求正式实现时转 feature。
+State the empirical decision and build the smallest experiment. Use an isolated directory, compare variants when needed, and run actual interactions before recommending an option. Build only for the question at hand. Do not present a disposable prototype as production delivery; use feature when the user requests a real implementation.

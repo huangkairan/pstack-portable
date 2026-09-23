@@ -1,3 +1,3 @@
 # session-pickup
 
-读取明确范围的交接记录，再核查实际分支、HEAD、未提交文件、进程、PR 与证据。分开历史结论和当前事实，选择仍有效续点后进入对应流程。记录缺失时不猜测已完成项，不扫描其他项目私聊。
+Read an explicitly scoped handoff, then check the current branch, HEAD, dirty files, processes, PRs, and evidence. Separate historical conclusions from present facts. Resume at a still-valid point using the matching workflow. Do not guess completion from missing records or scan unrelated project conversations.

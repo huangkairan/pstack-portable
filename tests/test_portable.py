@@ -17,9 +17,9 @@ from worktree_audit import audit
 
 class PlanTests(unittest.TestCase):
     def test_valid_dependency_graph_does_not_claim_execution(self):
-        plan = {'goal': '迁移', 'units': [
-            {'id': 'a', 'deliverable': '类型', 'verify': '类型检查'},
-            {'id': 'b', 'dependsOn': ['a'], 'deliverable': '调用者', 'verify': '行为检查'}]}
+        plan = {'goal': 'migration', 'units': [
+            {'id': 'a', 'deliverable': 'type', 'verify': 'type check'},
+            {'id': 'b', 'dependsOn': ['a'], 'deliverable': 'caller', 'verify': 'behavior check'}]}
         self.assertEqual(validate(plan), {'valid': True, 'units': 2, 'executionVerified': False})
 
     def test_rejects_invalid_dependencies_and_empty_verification(self):
@@ -53,15 +53,15 @@ class InstallTests(unittest.TestCase):
             with self.subTest(host=host), tempfile.TemporaryDirectory() as tmp:
                 project = Path(tmp)
                 user = project / directory / 'skills/custom/SKILL.md'
-                user.parent.mkdir(parents=True); user.write_text('用户技能')
+                user.parent.mkdir(parents=True); user.write_text('user skill')
                 install(host, project)
-                self.assertEqual(user.read_text(), '用户技能')
+                self.assertEqual(user.read_text(), 'user skill')
                 root = project / directory / 'skills/pstack-tdd'
                 self.assertTrue((root / 'references/contracts.md').is_file())
                 self.assertTrue((root / 'references/host.md').is_file())
                 self.assertEqual(len(list((project / directory / 'skills').glob('pstack-*/SKILL.md'))), 24)
                 install(host, project)
-                self.assertEqual(user.read_text(), '用户技能')
+                self.assertEqual(user.read_text(), 'user skill')
 
     def test_modified_owned_files_and_added_node_modules_block_update(self):
         for relative in ['SKILL.md', 'node_modules/custom/data.txt', '__pycache__/user.txt']:
@@ -70,7 +70,7 @@ class InstallTests(unittest.TestCase):
                 install('codex', project)
                 path = project / '.agents/skills/pstack-tdd' / relative
                 path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text('用户本地修改')
+                path.write_text('local user edit')
                 before = fingerprint(project)
                 with self.assertRaises(ValueError): install('codex', project)
                 self.assertEqual(fingerprint(project), before)
@@ -79,9 +79,9 @@ class InstallTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             project = Path(tmp)
             path = project / '.agents/skills/pstack-how/SKILL.md'
-            path.parent.mkdir(parents=True); path.write_text('外来技能')
+            path.parent.mkdir(parents=True); path.write_text('foreign skill')
             with self.assertRaises(ValueError): install('codex', project)
-            self.assertEqual(path.read_text(), '外来技能')
+            self.assertEqual(path.read_text(), 'foreign skill')
             self.assertFalse((project / '.agents/skills/pstack-tdd').exists())
 
     def test_symlink_parent_and_marker_do_not_write_outside_project(self):
@@ -107,7 +107,7 @@ class InstallTests(unittest.TestCase):
             real_copy = shutil.copytree
             def fail_once(src, dst, *args, **kwargs):
                 if Path(dst).resolve() == (project/'.agents/skills/pstack-tdd').resolve() and not kwargs.get('symlinks'):
-                    raise OSError('模拟写入失败')
+                    raise OSError('simulated write failure')
                 return real_copy(src, dst, *args, **kwargs)
             with patch('install.shutil.copytree', side_effect=fail_once), self.assertRaises(OSError):
                 install('codex', project)
@@ -118,7 +118,7 @@ class InstallTests(unittest.TestCase):
             project = Path(tmp)
             install('codex', project)
             before = fingerprint(project)
-            with patch('install.os.replace', side_effect=OSError('模拟记录提交失败')), self.assertRaises(OSError):
+            with patch('install.os.replace', side_effect=OSError('simulated marker commit failure')), self.assertRaises(OSError):
                 install('codex', project)
             self.assertEqual(fingerprint(project), before)
             install('codex', project)
@@ -129,7 +129,7 @@ class InstallTests(unittest.TestCase):
             project = Path(tmp)
             install('codex', project)
             pending = project/'.agents/pstack-portable-installed.json.tmp'
-            pending.write_text('用户文件')
+            pending.write_text('user file')
             before = fingerprint(project)
             with self.assertRaises(ValueError): install('codex', project)
             self.assertEqual(fingerprint(project), before)
@@ -137,7 +137,7 @@ class InstallTests(unittest.TestCase):
     def test_install_does_not_rebuild_source_tree(self):
         with tempfile.TemporaryDirectory() as tmp:
             before = digest_tree(ROOT/'skills')
-            with patch('build.build', side_effect=AssertionError('不允许重建源码')):
+            with patch('build.build', side_effect=AssertionError('source rebuild forbidden')):
                 install('codex', Path(tmp))
             self.assertEqual(digest_tree(ROOT/'skills'), before)
 
@@ -161,6 +161,15 @@ class AuditTests(unittest.TestCase):
 class PackagingTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls): build()
+
+    def test_active_skill_docs_and_descriptions_are_english(self):
+        paths = [ROOT / 'README.md', ROOT / '.codex-plugin/plugin.json']
+        for directory in ['core', 'adapters', 'skills', 'dist', 'docs']:
+            paths.extend(path for path in (ROOT / directory).rglob('*')
+                         if path.is_file() and path.suffix in {'.md', '.json', '.toml'})
+        for path in paths:
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertIsNone(re.search(r'[\u3400-\u9fff]', path.read_text()), path)
 
     def test_links_resolve_inside_packages(self):
         for host in ['codex','claude-code']:

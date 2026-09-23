@@ -1,43 +1,45 @@
-# 验证记录
+# Validation record
 
-日期：2026-09-22。环境：macOS，Codex CLI 0.155.1，Claude Code 2.1.278，Bun 1.3.14。真实测试均在隔离 Git 项目进行，没有修改日常业务项目或用户全局配置。
+Date: 2026-09-22. Environment: macOS, Codex CLI 0.155.1, Claude Code 2.1.278, Bun 1.3.14. Real model tests ran in isolated Git projects. A later global-skill discovery check ran on Claude Code 2.1.280. These tests did not modify an ordinary business project.
 
-## 已验证
+## Verified
 
-| 验证面 | 结果 | 证明范围 |
+| Surface | Result | What it establishes |
 |---|---|---|
-| 移植测试 | 15 项通过 | 两宿主项目安装、Claude Code 全局安装与更新、外来文件冲突、本地修改保护、符号链接防护、写入/记录提交失败回滚、计划依赖、带空格 worktree、资源链接与上游覆盖 |
-| 保留的工具 | 52 项通过，206 次断言 | orch 账本与 CLI、watch-pr 策略/解析/CLI；外部 GitHub/Graphite 使用测试替身 |
-| TypeScript | 类型检查通过 | watch-pr 上游 tsconfig 指定的检查范围 |
-| 打包 | 24 个技能通过 quick_validate；Codex 清单与 Claude 原生 plugin validate 通过 | 格式与清单，不等于所有技能行为已实测 |
-| Codex TDD | 通过 | 实际读取 pstack-tdd、先新增失败回归、再修实现、3 个测试通过 |
-| Claude TDD | 通过 | 原生 Skill 调用 pstack-tdd、读取契约与适配、先失败、后修复、4 个测试通过 |
-| Claude 插件委派 | 通过 | 原生插件发现，2 个 pstack-portable:pstack-reviewer 启动并完成，只读不同文件 |
-| Claude 全局技能发现 | 通过 | 在新会话中调用 /pstack-how，实际读取 ~/.claude/skills/pstack-how 的契约与宿主适配，并读取隔离项目 calc.py |
-| Codex 委派 | 通过 | 2 次原生 spawn；两份独立子会话各读取一个目标文件并产生 final_answer/task_complete；父会话等待并汇总 |
+| Port tests | 16 passed | Both project installers, Claude Code global install and update, foreign-file collisions, local changes, symlink protection, write and marker-commit rollback, plan dependencies, worktree paths with spaces, reference links, upstream inventory coverage, and English active content. |
+| Preserved tools | 52 passed, 206 assertions | `orch` ledger and CLI plus `watch-pr` policy, parsing, and CLI. External GitHub and Graphite calls use test doubles. |
+| TypeScript | Type check passed | The scope defined by the upstream `watch-pr` tsconfig. |
+| Packaging | 24 skills passed `quick_validate`; Codex manifest and Claude plugin validation passed | Format and manifests, not complete behavioral acceptance for every skill. |
+| Codex TDD | Passed | Loaded `pstack-tdd`, added and ran a failing regression before changing implementation, then passed 3 tests. |
+| Claude TDD | Passed | Native Skill invocation loaded `pstack-tdd`, read its contract and adapter, observed failure before the fix, then passed 4 tests. |
+| Claude plugin delegation | Passed | Native plugin discovery; two `pstack-portable:pstack-reviewer` agents started, each read a different file, and both completed. |
+| Claude global skill discovery | Passed | A fresh session invoked `/pstack-how`, read the contract and adapter under `~/.claude/skills/pstack-how`, and read an isolated project's `calc.py`. |
+| Codex delegation | Passed | Two native spawns. Two separate child sessions each read its assigned file and produced `final_answer` and `task_complete`; the parent waited and synthesized results. |
 
-两边 TDD 的外部复核另外检查空购物车、超额折扣、正常折扣与正常小计，全部通过。原有正常行为检查保留。只有 cart.py 和 test_cart.py 产生 tracked diff。
+An independent check after both TDD runs also covered an empty cart, excessive discount, normal discount, and normal subtotal. All passed. Only `cart.py` and `test_cart.py` had tracked changes.
 
-Codex 第一次 ephemeral 委派运行的 JSONL 未完整呈现 spawn，因此没有只采信模型最终回答；再次保留测试会话，核查父会话派生事件及两个子会话的工具调用、final_answer 和 task_complete 后才判为通过。该版本委派工具未提供命名角色参数，使用原生子代理并传入只读角色职责；整个委派测试为 read-only sandbox。这证明原生委派路径，不证明自定义 TOML 角色被工具按名实例化。
+The first ephemeral Codex delegation run did not expose enough spawn detail in its JSONL output, so the model's final answer was not accepted alone. A second run retained the parent and child transcripts. Two spawn events, their separate reads, and two child completion events supported the result. The exposed tool did not allow a named role parameter; the parent passed read-only role instructions to native subagents while the run used a read-only sandbox. This proves native delegation, not named instantiation of the custom TOML role.
 
-Claude 初次使用 --bare 测试未读取现有认证配置而报未登录；改用正常用户配置成功。未修改账号认证。两个成功测试的 CLI 费用合计约 1.114 美元。Codex 使用已有账号额度，未估算美元费用。
+Claude's first test under `--bare` did not load the existing authentication setup and reported a login failure. A retry with normal user settings succeeded; authentication was not changed. The two successful Claude task tests cost about USD 1.114 in the CLI. Codex used the existing account allowance; no dollar estimate is provided.
 
-## 独立评审与修复
+## Independent review and fixes
 
-独立代理在隔离快照中复现了安装记录符号链接可覆写项目外文件、指纹遗漏用户新增缓存/依赖目录、包缺少 coverage 文件三个问题。已修复并加入回归。后续复核发现 marker 提交失败遗留临时文件阻止重试，已补充清理和失败后重试测试。安装不会在冲突检查前重建源包。
+An independent review reproduced three installer issues in an isolated snapshot: a symlinked installation marker could overwrite a file outside the project, fingerprints omitted newly added user dependency/cache files, and the standalone package lacked the coverage file referenced by its notice. All three were fixed with regression tests. A later review found a temporary marker left behind after marker-commit failure; cleanup and retry tests now cover it. The installer no longer rebuilds the source tree before checking for destination conflicts.
 
-测试覆盖进程内错误回滚，不承诺断电、并发安装或恶意竞态的事务保证。
+The rollback tests cover errors within a running process. They do not establish recovery after a power loss, concurrent installation, or malicious races.
 
-## 尚未验证与未提供的能力
+On 2026-09-23, the shared content source, generated skills, package descriptions, README, and supporting documentation were converted to English. `readm-cn.md` remains the linked Chinese translation. The regenerated packages passed 16 Python tests, 52 Bun tests, TypeScript typecheck, 24 skill format checks, both plugin validators, and a clean rebuild check. The global Claude Code installation was updated. Live model behavior tests were not rerun for this documentation change; the behavior results above refer to the earlier version.
 
-- 未给全部 24 个工作流分别执行真实项目任务，只有 TDD 和委派的双宿主行为验收。
-- 未验证跨供应商模型竞赛、云隔离、长时间恢复、取消竞态、实际 PR 合并、生产 UI 操作或发布。
-- Cursor 持久唤醒与 cloud worker 没有伪造为本地等价实现。
-- Benny、GrokBot UI 缺项目外部接口，保留边界与阻塞状态，未声称完成服务集成。
-- GitHub PR 监听器通过确定性测试，不等于已对线上 PR 执行过持续监听。
+## Not yet verified or provided
 
-结构化摘要见 [live-results.json](live-results.json)。原始模型日志只保存在本机工作目录；未将会话历史、凭证或完整环境信息提交到仓库。
+- Not all 24 workflows have been exercised on a real project. TDD and delegation have behavior tests on both hosts.
+- Cross-provider model competitions, cloud isolation, long-lived recovery, cancellation races, real PR merging, production UI control, and deployment were not tested.
+- Cursor's durable wake-up and cloud worker are not represented as equivalent local implementations.
+- Benny and GrokBot UI require project-specific external interfaces. Their contracts and blocked states are documented; no live service integration is claimed.
+- GitHub PR watching has deterministic tests but has not run as a sustained watcher against a live PR.
 
-## 重跑
+See [live-results.json](live-results.json) for structured results. Raw model logs remain in the local work directory; conversation history, credentials, and full environment details were not committed.
 
-仓库 README 提供静态、确定性及可选真实模型测试命令。真实测试脚本默认返回 needs-evidence-review，不把模型退出码 0 当作验收通过。检查调用顺序与实际产物后再更新结论。
+## Rerunning
+
+The repository README lists static checks, deterministic tests, and optional live model checks. The live-test script initially returns `needs-evidence-review`: a model exit code of zero is not acceptance. Inspect invocation order and real artifacts before promoting the result.

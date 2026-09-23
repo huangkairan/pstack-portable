@@ -1,7 +1,7 @@
 # why
 
-1. 定位当前行为及其调用者，建立待解释的决策清单。
-2. 使用 git blame、git log -S/-G、关联提交与可访问 PR/设计记录，追溯引入和后续修改。明确调查的版本和范围。
-3. 分开记录作者明示理由、历史约束、从代码推断的理由；找不到原始动机时保留未知。
-4. 对比当时与现在的约束。若用户问是否改变，给出当前证据、替代方案和代价；只做调查时不实施改动。
-5. 输出决策时间线、来源定位、仍然成立的约束与尚待验证的假设。
+1. Locate the current behavior and its callers. List the decisions that require explanation.
+2. Use git blame, git log -S/-G, related commits, and accessible PRs or design records to trace when behavior appeared and changed. State the versions and scope investigated.
+3. Separate an author's stated reason, a historical constraint, and a reason inferred from source. Preserve unknowns when the original motivation is unavailable.
+4. Compare historical and current constraints. If the user asks whether to change course, give current evidence, alternatives, and costs. A read-only investigation does not implement the change.
+5. Report the decision timeline, source references, constraints that still apply, and assumptions requiring verification.

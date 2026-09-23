@@ -1,17 +1,17 @@
 ---
 name: pstack-architect
-description: "从调用用法推导数据结构和模块边界，用于实质性架构设计。"
+description: "Design module boundaries, core types, and interfaces from caller usage for substantial architecture decisions."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # architect
 
-1. 读取相关实现与调用者，概括现有边界和约束；绿地项目明确外部接口。无需先调用其他技能。
-2. 先写调用者用法，再写核心类型、函数签名、所有权和错误边界。至少比较两种结构不同的方案，说明各自消除与新增的复杂度。
-3. 用户要求并行设计或决策代价较高时，读取 arena 流程并运行隔离候选；普通设计在当前上下文比较即可。
-4. 检查浅模块、泄露内部细节、只转发的一层、按时间顺序拆分的模块。选择基底，明确吸收和舍弃的部分。
-5. 输出设计、使用示例、取舍、备选、风险与验证方式。用户仅要求设计时到此完成；已授权实施时实施最小完整变更并验证。重复出现同类摩擦时重审前提。
+1. Read the relevant implementation and callers. Summarize current boundaries and constraints; define external interfaces for greenfield work. No other skill is required first.
+2. Write the caller's usage before core types, function signatures, ownership, and error boundaries. Compare at least two structurally different designs, including the complexity each removes or adds.
+3. If the user requests parallel design exploration or the decision is costly, read the arena workflow and run isolated candidates. Compare ordinary designs in the current context.
+4. Check for shallow modules, leaked internals, pass-through layers, and modules divided only by execution phase. Select a base and state what to adopt or reject.
+5. Deliver the design, usage example, tradeoffs, alternatives, risks, and verification approach. Stop at the design when that is all the user requested; when implementation is authorized, make the smallest complete change and verify it. Revisit the premise if the same friction persists.
 
-按流程需要读取：
+Read when this workflow requires it:
 - [arena](references/workflows/arena.md)

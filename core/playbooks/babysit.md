@@ -1,3 +1,3 @@
 # babysit
 
-先声明 check（一次只读快照）、threads-only（评论处理）、drive（推进就绪）或 background（需真实调度）。普通查询选 check。读取最低未合并 PR 的冲突、评论和 CI，逐项判断真实问题，批量修复后重新核对当前 SHA。只在已授权时推送或回复，不合并、不变栈拓扑；flake 最多一次有依据重跑。监听可选 tools/watch-pr，监听不等于修复。
+Declare check (one read-only snapshot), threads-only (review replies), drive (advance readiness), or background (requires real scheduling). Choose check for an ordinary status question. Inspect the lowest unmerged PR for conflicts, review threads, and CI. Assess comments on their merits, batch fixes, and recheck the current SHA. Push or reply only when authorized; do not merge or alter stack topology. Rerun a suspected flaky check at most once with evidence. tools/watch-pr can watch; watching does not fix a PR.

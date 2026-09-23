@@ -1,3 +1,3 @@
 # autopilot-stack
 
-按固定基线拆任务，每个 owner 独立实现并提交证据。协调者是唯一拓扑写者，构建线性 base-branch 栈；重排改变补丁或基线后复验。发布前检查远程状态，任何覆盖历史操作依赖明确授权。最终交付已验证栈和未完成项，不合并、不开 auto-merge。
+Split work against a fixed base revision. Each owner implements independently and reports evidence. One coordinator owns topology and builds a linear base-branch stack. Reverify patches after reordering changes their base or content. Check remote state before publishing; overwriting history requires explicit authorization. Deliver the verified stack and remaining issues without merging or enabling auto-merge.

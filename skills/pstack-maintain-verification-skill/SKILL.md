@@ -1,13 +1,13 @@
 ---
 name: pstack-maintain-verification-skill
-description: "根据实际失败、功能变化或过期操作更新现有项目验证技能。"
+description: "Repair an existing project verification skill using observed product behavior."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # maintain-verification-skill
 
-1. 读取现有验证技能和功能地图，先定位过期命令、选择器、前置条件或证据断言；运行最小受影响路径确认问题。
-2. 检查产品实际契约是否变化。测试失败可能是产品回归，不能自动改断言让它通过。
-3. 修改有证据支持的步骤或 helper，删除被替代内容并更新相关引用。
-4. 重跑受影响功能，确认清理后证据仍在，报告改动与验证范围。周期维护需要另行配置真实调度，此技能不自行常驻。
+1. Read the existing verification skill and feature map. Find stale commands, selectors, prerequisites, or evidence checks. Run the smallest affected path to reproduce the issue.
+2. Determine whether the product contract actually changed. A failed check can expose a product regression; do not automatically weaken the assertion.
+3. Update steps or helpers supported by evidence, remove superseded content, and update callers and references.
+4. Rerun affected features, verify that evidence survives cleanup, and report the changed and tested scope. Periodic maintenance requires a separately configured real scheduler; this skill is not a resident process.

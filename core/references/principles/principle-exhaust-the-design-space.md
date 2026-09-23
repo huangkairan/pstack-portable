@@ -1,9 +1,9 @@
-# 有真实选择时比较多种方案
+# Exhaust the Design Space
 
-适用：新交互或无既有范式的架构决策，构建 2–3 个结构不同的原型后再选。
+When to apply: For a novel interaction or architectural choice without a precedent.
 
-新交互或无既有范式的架构决策，构建 2–3 个结构不同的原型后再选。
+Build two or three structurally different prototypes before choosing. Compare observed behavior against the real decision.
 
-边界：明确不用于目标清晰的机械实现、修复或只有唯一方案的约束任务；原型有时间成本。
+Boundary: Do not apply this to mechanical implementation, narrow fixes, or a constrained task with only one viable approach. Prototypes have a real cost.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-exhaust-the-design-space/SKILL.md#L7-L21)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-exhaust-the-design-space/SKILL.md#L7-L21)

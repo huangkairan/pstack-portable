@@ -1,5 +1,5 @@
-# 来源与变更
+# Origin and changes
 
-基于 Lauren Tan 的 pstack 0.15.2，保留 MIT LICENSE。vendor/pstack 为固定版本的原始资料，不自动加载。此项目是非官方移植，与原作者和 Cursor 无隶属关系。
+Based on Lauren Tan’s pstack 0.15.2 and distributed under its MIT LICENSE. `vendor/pstack` preserves the fixed upstream snapshot and is not loaded as active instructions. This unofficial port is not affiliated with the author or Cursor.
 
-迁移有意改变：简单任务本地执行；原则按需读取；设计竞赛与多模型审查显式选用；不使用全局持续模式；默认继承宿主模型；外部操作遵循实际任务授权；保留有用注释。完整映射见 docs/coverage.json。
+Intentional changes: complete small tasks locally; read principles on demand; opt into design competition and cross-model review; do not install a global sticky mode; inherit the host model by default; follow current task authorization for external actions; retain useful comments. See `docs/coverage.json` for the capability mapping.

@@ -1,3 +1,3 @@
 # shipping
 
-必须有本任务合并授权。固定每个 PR 的 head/base/patch 身份，独立审查与真实验证支持当前版本后，从栈底只合并连续已通过部分。每次合并后重新获取拓扑和 SHA；补丁变化重新验证。不提前给整个栈开 auto-merge。缺独立验证能力时标记阻塞，CI 绿不代替产品行为验证。
+Require authorization to merge this task. Fix each PR head, base, and patch identity. After independent review and real verification support the current revision, merge only the contiguous passing run from the bottom. Refresh topology and SHA after each merge, and reverify changed patches. Do not enable auto-merge for an entire stack in advance. Mark missing independent verification blocked; green CI alone is not product behavior proof.

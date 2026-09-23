@@ -1,9 +1,9 @@
-# 少写代码，减少协调
+# Laziness Protocol
 
-适用：重构、评估改动规模、准备增加抽象时。
+When to apply: When refactoring, sizing a diff, or adding abstractions.
 
-重构、评估改动规模、准备增加抽象时。优先删除、集中重复决策；检查新增信号是否真的需要穿过多层。
+Prefer deletion and centralize decisions that would otherwise repeat. Check whether a new signal truly needs to pass through multiple layers.
 
-边界：把“少代码”理解为少复杂度，不是删除必要行为；文件层数只是启发式。
+Boundary: Less code means less complexity, not missing required behavior. File and layer counts are heuristics.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-laziness-protocol/SKILL.md#L7-L18)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-laziness-protocol/SKILL.md#L7-L18)

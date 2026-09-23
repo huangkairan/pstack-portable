@@ -313,61 +313,61 @@
       "name": "orch",
       "target": "tools/orch",
       "status": "reused-optional",
-      "limit": "账本不调度；frontier 需要 gt，证据不自动核验"
+      "limit": "The ledger does not schedule work; frontier requires gt; evidence is not verified automatically"
     },
     {
       "name": "watch-pr",
       "target": "tools/watch-pr",
       "status": "reused-optional",
-      "limit": "只读监听；需要 gh，不自动修复或合并"
+      "limit": "Read-only monitoring requires gh; it does not fix or merge changes automatically"
     },
     {
       "name": "bootstrap",
       "target": "tools/bootstrap.ts",
       "status": "adapted",
-      "limit": "显式安装依赖，不自动联网"
+      "limit": "Dependencies are installed explicitly; no automatic network access"
     },
     {
       "name": "check-plan",
       "target": "scripts/check_plan.py",
       "status": "replaced",
-      "limit": "JSON 计划契约，不兼容上游固定十 lane Markdown 模板"
+      "limit": "The JSON plan contract is not compatible with the upstream fixed ten-lane Markdown template"
     },
     {
       "name": "worktree-audit",
       "target": "scripts/worktree_audit.py",
       "status": "replaced",
-      "limit": "只读清单，不自动判定删除或扫描聊天/模拟器"
+      "limit": "Read-only inventory; no automatic deletion decision or chat/simulator scan"
     },
     {
       "name": "model-routing",
       "target": "adapters",
       "status": "adapted",
-      "limit": "继承宿主模型，不保证跨供应商池"
+      "limit": "Inherits the host model; cross-provider model pools are not guaranteed"
     },
     {
       "name": "sticky-mode",
       "target": "core/workflows/poteto-mode.md",
       "status": "changed",
-      "limit": "任务内入口，无全局 sticky reminder"
+      "limit": "Task-scoped entry point; no global sticky reminder"
     },
     {
       "name": "durable-wake-cloud",
       "target": "core/playbooks/autonomous-run.md",
       "status": "host-dependent",
-      "limit": "不提供托管云或持久 scheduler"
+      "limit": "No hosted cloud or persistent scheduler is provided"
     },
     {
       "name": "grokbot-ui",
       "target": "core/workflows/make-bot-ui.md",
       "status": "requires-external-integration",
-      "limit": "缺平台 API 时阻塞"
+      "limit": "Blocked when the platform API is unavailable"
     },
     {
       "name": "decision-log",
       "target": "core/workflows/show-me-your-work.md",
       "status": "adapted",
-      "limit": "保存 TSV，不是持久事务队列"
+      "limit": "Writes TSV; it is not a durable transaction queue"
     }
   ]
 }

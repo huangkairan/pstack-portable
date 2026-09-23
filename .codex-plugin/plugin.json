@@ -1,18 +1,18 @@
 {
   "name": "pstack-portable",
   "version": "0.1.0",
-  "description": "pstack 的非官方跨宿主移植，共用工作流、原生委派与真实验证。",
+  "description": "An unofficial cross-host pstack port with shared workflows, native delegation, and real verification.",
   "author": {
     "name": "huangkairan"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Pstack Portable",
-    "shortDescription": "按需使用 pstack 工作流。",
-    "longDescription": "pstack 的非官方跨宿主移植，共用工作流、原生委派与真实验证。",
+    "shortDescription": "Use pstack workflows when the task calls for them.",
+    "longDescription": "An unofficial cross-host pstack port with shared workflows, native delegation, and real verification.",
     "developerName": "huangkairan",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "使用 pstack 调查、实现或验证当前任务。"
+    "defaultPrompt": "Use pstack to investigate, implement, or verify the current task."
   }
 }

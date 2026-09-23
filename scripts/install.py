@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""安装到指定项目或 Claude Code 全局目录；冲突不覆盖，失败回滚。"""
+"""Install into a project or globally for Claude Code, without overwriting conflicts."""
 import argparse
 import hashlib
 import json
@@ -23,27 +23,27 @@ def reject_symlinks(path, project):
     current = path
     while current != project:
         if current.is_symlink():
-            raise ValueError(f'拒绝通过符号链接安装: {current}')
+            raise ValueError(f'Refusing to install through a symlink: {current}')
         current = current.parent
 
 
 def install(host, project=None, global_install=False):
     if global_install:
         if host != 'claude-code':
-            raise ValueError('目前仅支持 Claude Code 全局安装')
+            raise ValueError('Global installation is supported only for Claude Code')
         project = Path.home().resolve()
     elif project is None:
-        raise ValueError('项目安装需要 --project')
+        raise ValueError('Project installation requires --project')
     else:
         project = Path(project).resolve()
     if not project.is_dir():
-        raise ValueError('项目目录必须已存在')
+        raise ValueError('Project directory must already exist')
     native = '.claude' if host == 'claude-code' else '.agents'
     marker = project / native / 'pstack-portable-installed.json'
     reject_symlinks(marker, project)
     old = json.loads(marker.read_text()) if marker.exists() else {}
     if not isinstance(old, dict):
-        raise ValueError('安装记录格式错误')
+        raise ValueError('Invalid installation record format')
     with tempfile.TemporaryDirectory(prefix='pstack-install-') as tmp:
         tmp = Path(tmp)
         source = tmp / 'pstack-portable'
@@ -56,7 +56,7 @@ def install(host, project=None, global_install=False):
             reject_symlinks(dest, project)
             key = str(dest.relative_to(project))
             if dest.exists() and (key not in old or fingerprint(dest) != old[key]):
-                raise ValueError(f'目标存在且不属于未修改的本包: {dest}')
+                raise ValueError(f'Destination exists and is not an unchanged package-owned entry: {dest}')
         backup = tmp / 'backup'
         backup.mkdir()
         changed = []
@@ -87,7 +87,7 @@ def install(host, project=None, global_install=False):
                 installed[str(dest.relative_to(project))] = fingerprint(dest)
             ensure_parent(marker.parent)
             if temp_marker.exists() or temp_marker.is_symlink():
-                raise ValueError(f'临时记录已存在: {temp_marker}')
+                raise ValueError(f'Temporary installation record already exists: {temp_marker}')
             with temp_marker.open('x') as stream:
                 marker_created = True
                 json.dump(installed, stream, ensure_ascii=False, indent=2)
@@ -105,8 +105,8 @@ def install(host, project=None, global_install=False):
             for directory in reversed(created_dirs):
                 if directory.exists() and not any(directory.iterdir()): directory.rmdir()
             raise
-    scope = '全局' if global_install else '项目'
-    print(f'已将 {len(targets)} 项安装到 {scope}目录 {project / native}，请启动新的 Claude Code 会话' if host == 'claude-code' else f'已将 {len(targets)} 项安装到 {scope}目录 {project / native}，请在该项目启动新会话')
+    scope = 'global' if global_install else 'project'
+    print(f'Installed {len(targets)} entries into the {scope} directory {project / native}. Start a new {"Claude Code" if host == "claude-code" else "Codex"} session.')
 
 
 if __name__ == '__main__':
@@ -119,4 +119,4 @@ if __name__ == '__main__':
     try:
         install(args.host, args.project, args.global_install)
     except (ValueError, OSError) as e:
-        p.exit(1, f'安装未完成: {e}\n')
+        p.exit(1, f'Installation failed: {e}\n')

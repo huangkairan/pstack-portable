@@ -1,13 +1,13 @@
 ---
 name: pstack-reflect
-description: "根据明确范围的任务记录复盘决策和重复失误，不自动修改长期记忆。"
+description: "Review scoped task history for repeated mistakes and evidence-backed process improvements."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # reflect
 
-1. 限定输入记录、项目和时间窗，获取实际成果、失败与用户纠正。无记录时明确无法历史复盘。
-2. 按证据分析决策质量、验证缺口、重复问题和有效做法。复杂材料可独立分片委派，切片结果须能回指原始来源。
-3. 区分一次性失误与反复模式，提出最少的结构性改进及其验证方法。
-4. 输出发现、引用、置信度和建议。只有用户明确要求保存或修改技能时才写入相应位置，不扫描其他项目、不自行固化个人偏好。
+1. Limit the records to an explicit project and time range. Gather actual outcomes, failures, and user corrections. Without records, state that a historical reflection is unavailable.
+2. Use evidence to assess decisions, verification gaps, repeated problems, and effective practices. Large records may be divided into independent slices; every finding must trace back to source material.
+3. Separate one-off mistakes from recurring patterns. Recommend the smallest structural improvement and a way to test it.
+4. Report findings, references, confidence, and recommendations. Save memories or modify skills only when the user explicitly asks. Do not read unrelated projects or turn personal preferences into permanent rules on your own.

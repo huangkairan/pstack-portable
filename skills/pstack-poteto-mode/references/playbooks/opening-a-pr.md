@@ -1,3 +1,3 @@
 # opening-a-pr
 
-检查当前分支与变更范围，核对证据对应最终版本。清理本次引入的无用代码，保留有价值注释。提交仅本次文件，用最终问题、行为和验证撰写 PR 描述。已授权创建 PR 时使用 git/gh，尊重项目模板与用户 draft 偏好。返回实际 URL 和剩余风险；不开自动合并，不自动长期 babysit。
+Check the branch and change scope, and ensure evidence matches the final revision. Remove useless code introduced by this task while preserving valuable comments. Commit only task files. Write the PR description around the final problem, behavior, and verification. When PR creation is authorized, use git and gh while respecting the repository template and the user’s draft preference. Return the actual URL and residual risks. Do not enable auto-merge or start indefinite PR monitoring.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""只读列出 worktree 状态；不判断可安全删除，不调用删除命令。"""
+"""List worktree status without deciding whether deletion is safe."""
 import argparse
 import json
 import subprocess

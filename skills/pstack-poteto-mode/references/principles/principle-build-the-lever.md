@@ -1,9 +1,9 @@
-# 把操作或验证变成可重跑工具
+# Build the Lever
 
-适用：非琐碎工作先手做一单元学出方法，再写最小脚本并对照验证；有确定性批处理就不让大量 Agent 手工重复。
+When to apply: For nontrivial repeated work.
 
-非琐碎工作先手做一单元学出方法，再写最小脚本并对照验证；有确定性批处理就不让大量 Agent 手工重复。
+Perform one unit by hand to learn the method, then write the smallest rerunnable tool and compare its result. Prefer deterministic batch work over many agents repeating mechanical steps.
 
-边界：应用后必须留下真实工具文件；不是额外建框架。委派时可用固定 skill 承载共同执行契约。
+Boundary: Leave an actual tool artifact. This does not call for a general framework. A fixed skill can carry a shared execution contract when delegation is useful.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-build-the-lever/SKILL.md#L7-L23)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-build-the-lever/SKILL.md#L7-L23)

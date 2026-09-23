@@ -1,3 +1,3 @@
 # worktree-cleanup
 
-先运行只读 scripts/worktree_audit.py <仓库> 列出路径、分支、dirty 状态。结合用户活跃任务与未推送提交判断；merged 只是一项证据。输出明确删除候选和保留原因，删除前需要针对集合的授权，复查状态再处理。模拟器工具仅在实际平台可用时检查。工具不自动删除目录。
+Run the read-only scripts/worktree_audit.py <repository> to list paths, branches, and dirty state. Consider active user tasks and unpushed commits; merged status is only one signal. Report exact deletion candidates and reasons to keep others. Obtain authorization for the specific deletion set, then recheck state before acting. Inspect simulators only when the relevant platform tools exist. The audit tool never deletes a directory.

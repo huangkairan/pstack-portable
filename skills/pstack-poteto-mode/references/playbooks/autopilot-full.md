@@ -1,3 +1,3 @@
 # autopilot-full
 
-先确认当前范围含每个目标 PR 的创建、推送和合并。每 PR 一个 owner，独立工作目录；owner 完成实现、自验、评论与 CI 处理，协调者独立验证当前 SHA 后才允许合并。没有合并授权就交付待审结果。维护有限并发、超时和停止传播；持久任务需真实调度，不能靠写“后台运行”实现。
+First confirm that this task authorizes creating, pushing, and merging every target PR. Give each PR one owner and a separate workspace. The owner implements, verifies, handles review, and checks CI. A coordinator independently verifies the current SHA before any merge. Without merge authorization, deliver review-ready results. Bound concurrency and time, propagate stop requests, and use real scheduling for durable operation. Writing “run in background” is not scheduling.

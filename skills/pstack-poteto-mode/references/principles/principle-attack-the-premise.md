@@ -1,9 +1,9 @@
-# 重复失败后审视共同前提
+# Attack the Premise
 
-适用：两个以上基于同一前提的修复都失败时，写出前提，用可重跑脚本统计各参与者的不平衡，再找角色分配机制。
+When to apply: When two or more attempted fixes share a failed assumption.
 
-两个以上基于同一前提的修复都失败时，写出前提，用可重跑脚本统计各参与者的不平衡，再找角色分配机制。
+State the shared premise, use a rerunnable script to measure the imbalance across actors, and investigate the allocation mechanism.
 
-边界：明确联动 build-the-lever、fix-root-causes、laziness-protocol；若分布均匀，不应强行归因于该前提。
+Boundary: Coordinate with Build the Lever, Fix Root Causes, and Laziness Protocol. If the distribution is even, do not force a conclusion that this premise caused the issue.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-attack-the-premise/SKILL.md#L7-L23)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-attack-the-premise/SKILL.md#L7-L23)

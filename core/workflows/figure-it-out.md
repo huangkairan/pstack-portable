@@ -1,7 +1,7 @@
 # figure-it-out
 
-1. 写可证伪的完成条件、范围、基线、规模和关键未知项。先找现有检查，再决定需要的最小验证工具。
-2. 拆成每个都能结束于实测的交付单元，明确依赖和回退点；仅在结构性决策需要时读取 architect 流程。
-3. 每轮记录假设、改动、实际结果、保留或回退的理由。持续失败时重审共同前提，不继续堆补丁。
-4. 多轮工作保存 checkpoint 和决策日志，包含当前 revision、证据位置、未完成项和下一步。持久唤醒不由此流程提供。
-5. 逐单元复验后在真实目标上验证整体。输出 VERIFIED/NOT_VERIFIED/INCONCLUSIVE/BLOCKED 状态及依据，不以计划执行完毕代替完成条件。
+1. Define falsifiable completion criteria, scope, baseline, size, and major unknowns. Find existing checks before choosing the smallest additional verification tool.
+2. Split work into deliverable units that each end in an observation. State dependencies and rollback points. Read the architect workflow only for structural decisions.
+3. For every iteration, record the hypothesis, change, observed result, and reason to keep or revert it. Repeated failure calls for revisiting the shared premise, not accumulating patches.
+4. For multi-round work, save a checkpoint and decision log with the current revision, evidence paths, unfinished work, and next action. This workflow does not provide durable wake-up.
+5. Recheck each unit and then verify the whole outcome against the real target. Report VERIFIED, NOT_VERIFIED, INCONCLUSIVE, or BLOCKED with evidence. Completing the plan is not itself proof of the goal.

@@ -1,9 +1,9 @@
-# 以最终可验证状态组织迁移
+# Outcome-Oriented Execution
 
-适用：明确阶段边界的重写和迁移可接受计划内、可逆的中间破坏；持续验证活跃区域，结束时做完整静态和运行验证。
+When to apply: For a rewrite or migration with explicit phase boundaries.
 
-明确阶段边界的重写和迁移可接受计划内、可逆的中间破坏；持续验证活跃区域，结束时做完整静态和运行验证。
+A planned, reversible intermediate break can be acceptable in a bounded work area. Keep verifying the active area and run full static and runtime checks before delivery.
 
-边界：不能推广成主分支随时可坏；需与 sequence-verifiable-units 协调，先定义哪里允许暂时不绿。
+Boundary: This does not mean the main branch may remain broken. Coordinate with Sequence Work into Verifiable Units and define where temporary failures are permitted.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-outcome-oriented-execution/SKILL.md#L7-L22)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-outcome-oriented-execution/SKILL.md#L7-L22)

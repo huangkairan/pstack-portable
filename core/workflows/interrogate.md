@@ -1,6 +1,6 @@
 # interrogate
 
-1. 准备相同的原始方案与证据，列出需要决定的问题，不把自己的结论塞进评审者提示。
-2. 委派不同视角的独立评审者，要求最强反例、成立条件、可执行验证和具体改动。可用不同模型时记录实际模型；同模型只声称多视角。
-3. 合并同类意见，验证关键异议；不能把评论数量或模型自信当证据。无法独立委派时报告能力缺口。
-4. 最多两轮：第二轮仅验证未决问题；仍未决则列为风险或需要用户作出的产品选择。输出保留/修改/拒绝意见及依据。
+1. Give independent reviewers the same original proposal and evidence. State the decision questions without embedding your preferred answer in their briefs.
+2. Assign different review angles. Ask for the strongest counterexample, conditions under which it holds, executable checks, and concrete changes. Record actual models when different models are available; otherwise call it a multi-perspective review.
+3. Group similar objections and verify decisive ones. Neither comment count nor model confidence is evidence. Report the capability gap if independent delegation is unavailable.
+4. Use at most two rounds. The second addresses only unresolved questions. Treat remaining uncertainty as a risk or a real product choice for the user. Report accepted, modified, and rejected objections with reasons.

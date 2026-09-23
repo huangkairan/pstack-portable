@@ -1,3 +1,3 @@
 # bug-fix
 
-在用户报告的同一界面或 CLI 路径复现并保留失败证据。跟踪最小调用链和根因；存在廉价回归路径时按 workflows/tdd.md 执行。修复后重跑原场景及相关回归。仅单测通过不能替代 UI 缺陷已消失；缺原场景访问权限则明确标记未验证。
+Reproduce the defect on the same UI or CLI path reported by the user and preserve failing evidence. Trace the smallest call chain to the root cause. If an inexpensive regression check exists, follow workflows/tdd.md. After the fix, rerun the original scenario and related regressions. A passing unit test alone does not prove a UI defect is gone. Mark the original scenario unverified when it cannot be accessed.

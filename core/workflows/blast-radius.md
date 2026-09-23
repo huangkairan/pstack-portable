@@ -1,7 +1,7 @@
 # blast-radius
 
-1. 固定 diff 基线与目标版本，找到一两个支撑安全性的关键事实。
-2. 追踪调用者、数据字段、协议、数据库、异步时序、跨语言消费者和锁定依赖版本。用提交历史补足 grep 看不到的约束。
-3. 对每个可信风险标出触发路径、影响和最低成本验证，运行实际代码的针对性检查；不为假设风险扩展实现范围。
-4. 区分主张、源码推断、可运行小例子、真实代码执行、实际用户路径观察。未运行真实代码不能写成已证明安全。
-5. 输出真实风险、已排除项、证据等级与合并前还需检查的内容。
+1. Fix the diff base and target revision. Identify one or two facts on which the change's safety depends.
+2. Trace callers, data fields, protocols, databases, async ordering, cross-language consumers, and locked dependency versions. Use commit history for constraints that a text search misses.
+3. For each credible risk, state its trigger, impact, and cheapest useful check. Run a focused check against real code without expanding implementation for hypothetical risks.
+4. Distinguish an assertion, source inference, runnable example, actual code execution, and observation on the user path. Do not call safety proven without executing the real code.
+5. Report real risks, ruled-out cases, evidence level, and the minimum remaining checks before merge.

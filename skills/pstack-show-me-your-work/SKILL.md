@@ -1,13 +1,13 @@
 ---
 name: pstack-show-me-your-work
-description: "为多轮或无人值守任务记录可审计的决策和实测证据。"
+description: "Keep a reviewable decision log and actual evidence for multi-round work."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # show-me-your-work
 
-1. 在任务目录创建 decisions.tsv，列 time、revision、question、action、evidence、result、next。每次决策一行，字段中的制表符和换行转为空格。
-2. 记录实际观察而非意图：执行了什么、结果如何、为何保留或撤回。证据引用持久文件或可重跑命令。
-3. 阶段末核对宣称、当前产物与证据的版本。失败和未知状态保留；推断和实测分开。
-4. 输出简洁决策摘要、可复核证据与未完成项。仅用户要求审计提交时入库，日志不自动公开。
+1. Create decisions.tsv in the task directory with time, revision, question, action, evidence, result, and next columns. Record one decision per row; replace embedded tabs and newlines with spaces.
+2. Record observations rather than intentions: what ran, what happened, and why the change was kept or reverted. Point evidence to durable files or rerunnable commands.
+3. At each phase boundary, check claims against the current artifact and the revision behind the evidence. Preserve failures and unknown states; separate inference from observation.
+4. Return a short decision summary, reviewable evidence, and unfinished work. Commit the log only when the user requests an auditable commit. Do not publish it automatically.

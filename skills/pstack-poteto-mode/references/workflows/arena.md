@@ -1,7 +1,7 @@
 # arena
 
-1. 固定目标、基线和产物形式，确定 3–6 条可观察的评分标准。候选收到相同约束但不看裁判评分表。
-2. 默认最多两个候选；只有用户预算或明确任务需要才增加。按宿主原生委派，使用不重叠输出目录或相同基线独立 worktree。候选互不读取成果。
-3. 收齐结果再独立评审；有不同可用模型才称跨模型评审。无子代理能力时明确阻塞独立竞赛，不把自己换口吻当独立候选。
-4. 父代理读取每份产物并核实评审，按标准选基底、吸收有证据的优点。严重分歧先核实任务前提，不以多数票决定事实。
-5. 验证合成后的真实产物。输出评分、基底、移植、舍弃、缺席候选和限制。候选失败可继续，但需说明覆盖下降，不能伪造候选结果。
+1. Fix the goal, base revision, and artifact format. Define three to six observable scoring criteria. Give candidates identical constraints without showing them the judge's rubric.
+2. Start with at most two candidates. Increase that number only when the task or budget warrants it. Use native delegation with separate output paths or worktrees at the same base revision. Candidates must not read one another's work.
+3. Collect results before independent review. Call the review cross-model only when different models were actually used. If delegation is unavailable, report that an independent competition is blocked; a single agent adopting different voices is not equivalent.
+4. The parent reads every artifact, verifies the reviews, chooses a base, and incorporates evidence-backed improvements. Investigate serious disagreement about task premises instead of deciding by vote.
+5. Verify the synthesized artifact. Report scores, selected base, grafts, rejected parts, missing candidates, and limits. You may continue when a candidate fails, but disclose reduced coverage; never invent a candidate result.

@@ -1,9 +1,9 @@
-# 从使用者体验取舍
+# Experience First
 
-适用：产品和接口权衡时先看使用者收益，少做但打磨完整；把调用库的同事和未来维护者也视为用户。
+When to apply: For product, interface, and scope tradeoffs.
 
-产品和接口权衡时先看使用者收益，少做但打磨完整；把调用库的同事和未来维护者也视为用户。
+Prioritize benefits to the user. Deliver fewer things fully finished; include colleagues who call the library and future maintainers among the users.
 
-边界：方向性原则，不附带 UX 度量工具；细节仍需真实体验验证。
+Boundary: This is a directional principle, not a UX measurement tool. Verify the actual experience.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-experience-first/SKILL.md#L7-L19)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-experience-first/SKILL.md#L7-L19)

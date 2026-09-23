@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""只读检查工具存在性，不把命令存在等同于能力验收。"""
+"""Check tool availability without treating command presence as capability proof."""
 import argparse
 import json
 import shutil

@@ -1,3 +1,3 @@
 # orchestrate
 
-先执行一个端到端 pilot，确认 brief、产物、真实验证和集成路径。按单元维护目标、基线、owner、状态、证据和未决问题；可选 tools/orch 账本，CLI 不启动代理或验证证据。宿主调度有限并发，单一协调者整合，最多两次相同原因重试再记录阻塞。Graphite frontier 是单独依赖；不用它时以已核实 git/gh 列表维护队列。跨会话运行需要外部调度与恢复实测。
+Run one end-to-end pilot to prove briefs, artifacts, real verification, and integration. Track goal, base revision, owner, state, evidence, and questions per unit. tools/orch is an optional ledger; its CLI neither starts agents nor verifies evidence. The host schedules bounded parallelism and one coordinator integrates results. After two retries for the same reason, record the block. Graphite frontier is a separate dependency; without it, maintain the queue using verified git or gh data. Cross-session operation needs an actual scheduler and tested recovery.

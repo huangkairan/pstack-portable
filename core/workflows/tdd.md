@@ -1,7 +1,7 @@
 # tdd
 
-1. 读取目标行为、现有实现与测试惯例，选择最小真实调用的复现。
-2. 先新增行为测试或可重跑检查，在改生产代码前运行，保留失败输出，并确认失败原因就是目标 bug。
-3. 做最小修复；保留正确断言，不改期望去迎合错误实现。
-4. 重跑该检查，确认通过，再运行与变更有关的邻近检查。
-5. 输出失败前、修复后命令和观察结果。如果测试路径需要不成比例的脚手架，说明原因并选择真实操作或针对性脚本；没有失败前证据就明确写未证明，而非补造记录。
+1. Read the intended behavior, existing implementation, and test conventions. Choose the smallest reproduction through a real entry point.
+2. Add a behavioral test or rerunnable check first. Run it before production changes, preserve the failing output, and confirm that it fails for the target bug.
+3. Make the smallest fix. Keep correct assertions; do not change expected behavior to accommodate a broken implementation.
+4. Rerun the focused check until it passes, then run nearby checks relevant to the change.
+5. Report the before and after commands and observations. If a test would require disproportionate scaffolding, explain why and choose a real user action or targeted script. Without before-failure evidence, say the regression was not demonstrated rather than inventing it.

@@ -1,3 +1,3 @@
 # investigation
 
-读取 workflows/how.md 调查机制；只有问题涉及历史动机才读取 workflows/why.md。给出代码定位、事实与推断、未知项。保持只读，不自动开 PR。
+Read workflows/how.md to understand the mechanism. Read workflows/why.md only when the question concerns historical motivation. Report code locations, facts, inferences, and unknowns. Remain read-only and do not open a PR automatically.

@@ -1,6 +1,6 @@
 # unslop
 
-1. 明确读者、目的和必须保留的事实、数字、链接、条件与不确定性。
-2. 主结论前置，使用具体动词和连贯短句，删除重复铺垫、夸赞、空洞对比和无信息结尾。
-3. 保留用户的语气与语言，不因精简丢失取舍或未验证项；不擅自补充事实或来源。
-4. 对照原文核对语义完整性，输出可直接使用的版本。必要时仅补一句说明事实疑点。
+1. Identify the audience, purpose, and facts, numbers, links, conditions, and uncertainties that must survive the edit.
+2. Lead with the conclusion. Use concrete verbs and connected short sentences. Remove repetitive setup, praise, empty contrasts, and endings that add no information.
+3. Preserve the user's tone and language. Brevity must not remove tradeoffs or unverified items. Do not add facts or sources without evidence.
+4. Compare the edit with the source for meaning. Return a ready-to-use version and mention a factual uncertainty only when necessary.

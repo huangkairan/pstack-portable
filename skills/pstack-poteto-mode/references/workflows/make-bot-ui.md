@@ -1,6 +1,6 @@
 # make-bot-ui
 
-1. 先核实当前平台是否提供状态更新、消息发送、可访问页面和身份/线程定位。原版 GrokBot/Tailscale 接口不是通用能力。
-2. 平台已提供接口时，将 UI 状态与外部效果分离，定义输入、状态、动作、失败与重试。只调用实际存在且已授权的接口。
-3. 用用户场景验证首次加载、状态变化、错误和恢复，确认不同线程/用户隔离。
-4. 缺接口时给出明确的适配契约和 BLOCKED 状态；可按请求制作本地原型，但不能称机器人集成已完成。
+1. Check whether the target platform actually provides state updates, messaging, an accessible UI, and user/thread identity. The original GrokBot and Tailscale interfaces are not portable capabilities.
+2. When interfaces exist, separate UI state from external effects. Define inputs, state, actions, errors, and retries. Use only interfaces that exist and are authorized for the task.
+3. Verify initial load, state transitions, failures, and recovery through user scenarios. Check isolation between users and threads.
+4. If interfaces are missing, provide an explicit adapter contract and BLOCKED status. Build a local prototype when requested, but do not claim that the bot integration works.

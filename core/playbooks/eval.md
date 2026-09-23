@@ -1,3 +1,3 @@
 # eval
 
-固定原始任务、输入、预算与评分标准，候选只收到自然任务，不泄露期望答案。隔离运行不同版本，记录实际读取、工具执行与产物。独立评审并由主代理核对证据；同模型评审披露局限。给推广建议和失败案例，不能用一次成功宣称普遍优越。
+Fix the task, input, budget, and scoring criteria. Give candidates the same natural request without leaking the desired answer. Run versions in isolation and record actual reads, tool calls, and artifacts. Obtain independent review and have the parent verify its evidence; disclose when reviewers use the same model. Report failure cases and a promotion recommendation. One success does not establish general superiority.

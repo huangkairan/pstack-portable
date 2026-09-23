@@ -1,3 +1,3 @@
 # feature
 
-写用户可观察的完成条件，读取现有实现并确定数据结构。简单改动直接实现，实质性边界变化才读取 workflows/architect.md。独立部分可委派但不强制。实现后运行真实入口与相关验证，核对全部完成条件；仅请求本地实现时不自动发布。
+Define user-observable completion criteria, read the current implementation, and identify the data shape. Implement small changes directly. Read workflows/architect.md only for a material boundary change. Delegate independent work when useful, not by default. Exercise the real entry point and relevant checks, then compare the result with every completion criterion. Do not publish when the request covers only local implementation.

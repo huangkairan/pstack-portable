@@ -1,9 +1,9 @@
-# 同时减少层次和隐藏状态
+# Minimize Reader Load
 
-适用：审查代码时统计追踪层数与读者需记住的可变状态，合并无压缩价值的转发层，缩小状态作用域。
+When to apply: When code is hard to trace.
 
-审查代码时统计追踪层数与读者需记住的可变状态，合并无压缩价值的转发层，缩小状态作用域。
+Count the layers a reader must follow and the mutable state they must remember. Collapse pass-through layers that add no compression and shrink state scope.
 
-边界：平铺文件也可能隐藏大量全局状态；它并非一味反对深模块。关联 guard-the-context-window。
+Boundary: A flat file can still hide global state. The aim is not to ban deep modules; Guard the Context Window is related.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-minimize-reader-load/SKILL.md#L7-L23)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-minimize-reader-load/SKILL.md#L7-L23)

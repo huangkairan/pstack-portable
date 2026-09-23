@@ -1,6 +1,6 @@
 # technical-writing
 
-1. 确定读者要完成什么，从问题与最终行为写起。
-2. 用实际入口、命令、接口、例子和验证支撑说明；步骤按读者操作顺序排列。
-3. 区分事实、方案、推断与未验证项。条件、失败处理和范围放在相关说明旁边。
-4. 对照真实代码/命令检查名称和链接，避免重复实现细节。PR 描述呈现最终差异与验证，不记录对话历史。
+1. Define what the reader needs to do. Lead with the problem and resulting behavior.
+2. Support instructions with real entry points, commands, interfaces, examples, and verification. Order steps as the reader will use them.
+3. Keep facts, proposals, inferences, and unverified items distinct. Place conditions, failure handling, and scope next to the affected instruction.
+4. Check names and links against actual code and commands. Avoid repeating implementation details. A PR description explains the final change and its verification, not the conversation history.

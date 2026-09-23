@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""显式运行真实模型测试，会使用当前宿主额度；日志仅留在指定目录。"""
+"""Run live model tests explicitly; they consume host allowance and keep logs in the selected directory."""
 import argparse
 import json
 import os
@@ -25,12 +25,12 @@ def prepare(path, case):
         (path/'price.py').write_text('def discounted(price, discount):\n    return max(0, price - discount)\n')
     subprocess.run(['git','init','-q',str(path)],check=True)
     subprocess.run(['git','-C',str(path),'add','.'],check=True)
-    subprocess.run(['git','-C',str(path),'-c','user.name=Portable Test','-c','user.email=test@example.invalid','commit','-qm','测试基线'],check=True)
+    subprocess.run(['git','-C',str(path),'-c','user.name=Portable Test','-c','user.email=test@example.invalid','commit','-qm','test baseline'],check=True)
 
 
 def run(host, case, output, timeout=180, persist=False):
     output = Path(output).resolve()
-    if output.exists(): raise ValueError('输出目录必须不存在，避免覆盖已有证据')
+    if output.exists(): raise ValueError('Output directory must not exist, to avoid overwriting evidence')
     project = output/'project'
     prepare(project, case)
     if host == 'codex':
@@ -40,10 +40,10 @@ def run(host, case, output, timeout=180, persist=False):
         build()
         skill = '/pstack-portable:pstack-'+('tdd' if case == 'tdd' else 'swarm')
     if case == 'tdd':
-        prompt = f'使用 {skill} 修复 cart.py：优惠金额超过小计时返回 0。保持正常折扣行为。先写并运行失败回归，再修改实现并运行全部 unittest。仅修改 cart.py 和 test_cart.py，不提交、不联网、不用外部连接器。中文报告实际证据。'
+        prompt = f'Use {skill} to fix cart.py: return 0 when the discount exceeds the subtotal, while preserving normal discounts. First write and run a failing regression test, then change the implementation and run all unittest tests. Edit only cart.py and test_cart.py. Do not commit, access the network, or use external connectors. Report the actual evidence in English.'
     else:
         role = 'pstack-reviewer' if host == 'codex' else 'pstack-portable:pstack-reviewer'
-        prompt = f'使用 {skill} 分别调查 stock.py 和 price.py 的边界行为。请实际委派两个独立的 {role} 子代理，每人只读一个文件，返回具体条件与例子；等待两者完成再汇总。禁止修改文件、联网或使用外部连接器。此任务验收包含两次真实独立委派，不可用自己换视角代替；能力缺失请明确说明。'
+        prompt = f'Use {skill} to investigate the boundary behavior of stock.py and price.py separately. Actually delegate to two independent {role} subagents, one read-only file per agent. Each must return concrete conditions and examples. Wait for both before summarizing. Do not modify files, access the network, or use external connectors. Acceptance requires two real independent delegations; do not substitute two perspectives from yourself. State clearly if delegation is unavailable.'
     if host == 'codex':
         cmd=['codex','exec','--ignore-user-config','--ephemeral','--sandbox','workspace-write' if case=='tdd' else 'read-only','--json','-c','model_reasoning_effort="low"','-C',str(project),prompt]
         if persist: cmd.remove('--ephemeral')
@@ -84,6 +84,6 @@ if __name__=='__main__':
     p.add_argument('--case',choices=['tdd','delegation'],required=True)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--timeout',type=int,default=180)
-    p.add_argument('--persist',action='store_true',help='Codex 保留本次测试会话供核验委派事件')
+    p.add_argument('--persist',action='store_true',help='Keep this Codex test session for reviewing delegation events')
     a=p.parse_args()
     sys.exit(run(a.host,a.case,a.output,a.timeout,a.persist))

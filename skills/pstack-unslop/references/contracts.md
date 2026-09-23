@@ -1,13 +1,13 @@
-# 执行与证据契约
+# Execution and evidence contract
 
-任务范围来自当前用户请求。技能描述不扩大授权；只读调查不修改实现，设计请求不自动进入实施，创建 PR 不代表合并许可。直接完成已授权的可逆工作。
+The current user request sets the task scope. A skill description does not grant additional permission. A read-only investigation does not modify the implementation; a design request does not automatically authorize implementation; permission to open a PR does not imply permission to merge. Complete authorized reversible work directly.
 
-委派时给出 goal、scope、baseRevision、verification、budget、reportPath。共享文件只允许一个写入者；代码候选使用相同基线的独立 worktree。子代理完成后由主代理检查产物与证据，再合并并复验。文件隔离不代表凭证或网络隔离。
+A delegation brief states goal, scope, baseRevision, verification, budget, and reportPath. Give shared files one writer. Code candidates use separate worktrees at the same base revision. After subagents return, the parent checks artifacts and evidence, integrates the work, and verifies again. File isolation does not imply credential or network isolation.
 
-结果区分 VERIFIED（实际检查支持当前产物）、NOT_VERIFIED（尚未运行）、INCONCLUSIVE（已运行但不能归因）、BLOCKED（缺必需能力）。报告包含 revision/产物路径、执行命令或用户操作、观察结果、剩余限制。只有满足本任务所有完成条件才能称完成。编译通过不证明 UI、部署或线上效果。
+Use VERIFIED when actual checks support the current artifact, NOT_VERIFIED when they have not run, INCONCLUSIVE when observations cannot support the claim, and BLOCKED when a required capability is missing. Reports include the revision or artifact path, command or user action, observed result, and remaining limits. Completion requires every criterion for this task. A successful build alone does not prove UI, deployment, or production behavior.
 
-缺可选工具可明确退回本地或串行流程；要求独立评审时由同一代理自审不等价。缺必需验证、权限隔离、模型多样性或持久唤醒时，报告缺口，不模拟成功。普通任务不要求账本；跨轮任务将目标、已做事项、证据和下一步写入用户指定的任务目录。
+When an optional tool is missing, a disclosed local or serial path may suffice. Self-review by the same agent is not an independent review when independence is required. Report missing verification, permission isolation, model diversity, or durable scheduling instead of simulating success. Ordinary tasks need no ledger; multi-round tasks record the goal, completed work, evidence, and next action in the task directory selected by the user.
 
-拒收与当前基线不符的旧结果。恢复前检查分支、HEAD、未提交改动、运行进程和外部状态。停止请求传播到所有本任务子代理；确认退出状态，无法确认则记录 unknown，不将其写为成功。
+Reject stale results that do not match the current base revision. Before resuming, inspect the branch, HEAD, uncommitted changes, running processes, and external state. Propagate a stop request to every subagent for this task. Confirm exit states; record an unknown result as unknown, not success.
 
-需要委派时读取当前项目已有 .pstack.json：maxWorkers 和 maxRounds 为正整数，缺省各为 2。格式错误时先报告配置问题。当前用户预算和宿主上限优先于配置，配置不能增加宿主权限。
+Before delegating, read an existing project .pstack.json. maxWorkers and maxRounds must be positive integers and default to 2 when absent. Report malformed configuration before delegation. Current user budgets and host limits take precedence; configuration cannot increase host permissions.

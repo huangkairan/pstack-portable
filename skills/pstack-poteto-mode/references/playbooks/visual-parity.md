@@ -1,3 +1,3 @@
 # visual-parity
 
-先固定基线、浏览器/字体/视口/设备缩放和数据。使用同一截图与比较工具，迁移时保持基线不变。像素等价要求零差异；环境不确定或动画不能冻结时报告阻塞，不擅自提高容差。若用户另定感知阈值，以该约定为准并记录。产物包含逐项 diff 与未验证状态。
+Fix the baseline, browser, fonts, viewport, device scale, and data. Use the same capture and comparison tools throughout, keeping the baseline unchanged. Pixel parity requires zero difference; report a block when animation or environment variation cannot be controlled instead of silently increasing tolerance. Honor a different perceptual threshold only when the user specifies it and record that threshold. Include per-component diffs and unverified cases.

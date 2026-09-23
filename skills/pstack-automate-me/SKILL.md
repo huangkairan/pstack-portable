@@ -1,14 +1,14 @@
 ---
 name: pstack-automate-me
-description: "从用户授权的历史样本提取可重复偏好，生成个人工作模式。"
+description: "Derive a reusable personal work mode from authorized conversation samples with independent evidence."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # automate-me
 
-1. 确认样本范围和期望输出目录，读取已有个人模式以避免覆盖用户选择。记录不足时询问关键偏好，不猜测。
-2. 在至少两个独立样本中寻找一致偏好，记录来源和反例。单次纠正标为候选，不直接写成永久规则。
-3. 分离稳定偏好、具体项目惯例和一次性任务指令，保持模式小而明确。
-4. 按当前宿主技能格式生成草稿：触发条件、改变决策的规则、按需参考和停止条件。原作者模式只参考结构，不复制个人偏好。
-5. 检查可加载性与真实样例，报告依据与未确定项。安装、提交或 PR 仅在当前请求涵盖时执行。
+1. Confirm the authorized sample scope and output directory. Read an existing personal mode before changing it. Ask about essential preferences when the record is insufficient.
+2. Find consistent preferences in at least two independent samples. Record sources and counterexamples. Treat a one-off correction as a candidate, not a permanent rule.
+3. Separate stable preferences from project conventions and one-time task instructions. Keep the resulting mode small and specific.
+4. Draft a skill in the current host format with triggers, decision-changing rules, optional references, and stop conditions. Borrow only the structure of the author's mode, not the author's personal preferences.
+5. Check that it loads and test a realistic example. Report the evidence and open questions. Install, commit, or open a PR only when the current request includes those actions.

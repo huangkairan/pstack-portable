@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从共用内容生成两个原生包；生成目录不手改。"""
+"""Generate native packages from shared content; do not edit generated files."""
 import argparse
 import hashlib
 import json
@@ -31,9 +31,9 @@ def build_package(root, host):
         copy(ROOT / f'adapters/{host}.md', refs / 'host.md')
         body = (ROOT / f'core/workflows/{name}.md').read_text()
         entry = f'---\nname: pstack-{name}\ndescription: {json.dumps(info["description"], ensure_ascii=False)}\n---\n\n'
-        entry += '先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。\n\n' + body
+        entry += 'Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.\n\n' + body
         if name in EXTRA:
-            entry += '\n按流程需要读取：\n' + '\n'.join(f'- [{n}](references/workflows/{n}.md)' for n in EXTRA[name]) + '\n'
+            entry += '\nRead when this workflow requires it:\n' + '\n'.join(f'- [{n}](references/workflows/{n}.md)' for n in EXTRA[name]) + '\n'
             for n in EXTRA[name]:
                 copy(ROOT / f'core/workflows/{n}.md', refs / f'workflows/{n}.md')
         if name == 'poteto-mode':
@@ -44,14 +44,14 @@ def build_package(root, host):
             copy(ROOT / 'tools', folder / 'tools')
             for n in ['check_plan.py', 'worktree_audit.py', 'doctor.py']:
                 copy(ROOT / 'scripts' / n, folder / 'scripts' / n)
-            entry += '\n[流程索引](references/playbooks/index.md)；[原则索引](references/principles.md)。本入口中的工具路径相对本技能目录，首次用 tools 显式安装其依赖。\n'
+            entry += '\n[Playbook index](references/playbooks/index.md); [principle index](references/principles.md). Tool paths are relative to this skill directory. Explicitly install tool dependencies before first use.\n'
         if name == 'setup-pstack':
             copy(ROOT / 'scripts/doctor.py', folder / 'scripts/doctor.py')
         if name == 'typescript-best-practices':
             copy(ROOT / 'core/references/typescript.md', refs / 'typescript.md')
-            entry += '\n检查具体类型设计时读取 [类型规则](references/typescript.md)。\n'
+            entry += '\nRead the [type rules](references/typescript.md) when assessing a concrete type design.\n'
         (folder / 'SKILL.md').write_text(entry)
-    manifest = {'name': 'pstack-portable', 'version': '0.1.0', 'description': 'pstack 的 Claude Code 与 Codex 非官方移植；按需工作流与真实验证。', 'author': {'name': 'huangkairan'}, 'license': 'MIT'}
+    manifest = {'name': 'pstack-portable', 'version': '0.1.0', 'description': 'An unofficial pstack port for Claude Code and Codex with task-specific workflows and real verification.', 'author': {'name': 'huangkairan'}, 'license': 'MIT'}
     if host == 'codex':
         manifest['skills'] = './skills/'
         manifest_dir = root / '.codex-plugin'
@@ -61,18 +61,18 @@ def build_package(root, host):
         agents.mkdir()
         (agents / 'pstack-reviewer.md').write_text('''---
 name: pstack-reviewer
-description: 独立只读检查实现与证据，返回具体问题和未知项。
+description: Independently review implementation and evidence without modifying files.
 tools: Read, Grep, Glob
 ---
 
-独立读取任务指定的代码与证据。报告路径、问题触发条件、影响与建议；没有执行权限时只报告静态审查，不声称运行通过。不修改文件，不代表主代理发送消息。
+Read the code and evidence specified by the task. Report paths, triggering conditions, impact, and recommendations. Without execution access, report only static findings. Do not claim runtime success, edit files, or send messages on behalf of the parent.
 ''')
         (agents / 'poteto-agent.md').write_text('''---
 name: poteto-agent
-description: 在明确范围内完成实现或调查并返回实际证据。
+description: Implement or investigate within a defined scope and report actual evidence.
 ---
 
-按主任务目标、允许写入范围、基线与完成条件工作。选择最小相关流程，任务简单时直接完成。返回产物、实际验证、未完成项和限制。隔离输出，外部动作遵循当前任务授权；不自动递归派生。
+Work from the parent task goal, allowed write paths, base revision, and completion criteria. Choose the smallest relevant workflow and complete simple tasks directly. Return artifacts, actual checks, unfinished work, and limitations. Keep outputs isolated. Follow current authorization for external actions and do not recursively delegate by default.
 ''')
     manifest_dir.mkdir()
     (manifest_dir / 'plugin.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n')
@@ -96,7 +96,7 @@ def build(check=False):
             dest = ROOT / 'dist' / host / 'pstack-portable'
             if check:
                 if not dest.exists() or digest_tree(out) != digest_tree(dest):
-                    raise ValueError(f'{host} 产物与源码不一致，先运行 scripts/build.py')
+                    raise ValueError(f'{host} package differs from source; run scripts/build.py first')
             else:
                 if dest.exists():
                     shutil.rmtree(dest)
@@ -104,11 +104,11 @@ def build(check=False):
         source = tmp / 'codex/pstack-portable/skills'
         if check:
             if digest_tree(source) != digest_tree(ROOT / 'skills'):
-                raise ValueError('根目录 skills 与源码不一致')
+                raise ValueError('Root skills differ from source')
         else:
             shutil.rmtree(ROOT / 'skills')
             copy(source, ROOT / 'skills')
-    print('两个宿主产物已核对' if check else '已生成两个宿主包和根目录 Codex skills')
+    print('Both host packages match source' if check else 'Generated both host packages and root Codex skills')
 
 
 if __name__ == '__main__':

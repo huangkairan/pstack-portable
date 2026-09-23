@@ -1,3 +1,3 @@
 # autonomous-run
 
-明确完成谓词、预算、停止条件与持久任务目录。每轮读 checkpoint、检查当前状态、推进一步、实际验证、写入证据与下一步。宿主支持且任务授权时使用其调度；没有跨会话唤醒能力则仅能当前会话推进，退出前记录未完成与续点，不宣称已后台常驻。用户停止立即停止本任务委派与外部写入。
+Set a completion predicate, budget, stop condition, and durable task directory. Each round reads the checkpoint, inspects current state, advances one step, verifies it, and records evidence and the next step. Use host scheduling only when supported and authorized. Without cross-session wake-up, work in the current session and leave an explicit continuation point; do not claim a background service remains alive. A user stop ends this task’s delegation and external writes.

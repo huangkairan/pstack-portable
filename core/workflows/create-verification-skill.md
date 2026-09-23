@@ -1,7 +1,7 @@
 # create-verification-skill
 
-1. 从源码发现用户界面、启动命令、已有测试与控制工具、可观察结果、隔离方式。只询问源码不能回答的必要环境信息。
-2. 按宿主适配说明选择项目技能目录，生成 verify-<项目>/SKILL.md。包含 Launch、Doctor、Drive、Evidence、Cleanup、Helpers，命令来自实际项目，不用猜测的占位符。
-3. 建立 3–5 个用户功能的地图，每项列前置条件、实际操作、预期、证据与清理。可用功能不足时按实际数量。
-4. 完整运行至少一个功能：启动、检查环境、操作真实界面/CLI、断言、保留证据、清理本任务资源。清理后再次确认报告/截图仍存在。
-5. 输出生成位置、已跑功能、未跑功能和缺少的工具。一个功能通过不能称整个地图通过；环境启动失败时保留失败证据。
+1. Inspect the source for the user interface, launch command, existing tests and control tools, observable outcomes, and isolation method. Ask only for essential environment facts that the source cannot supply.
+2. Choose the project skill location from the host adapter. Create verify-<project>/SKILL.md with Launch, Doctor, Drive, Evidence, Cleanup, and Helpers. Use commands found in the real project, not guessed placeholders.
+3. Map three to five user-facing features. For each, record prerequisites, real actions, expectations, evidence, and cleanup. Use fewer entries when fewer features exist.
+4. Run at least one feature end to end: launch, check the environment, operate the real UI or CLI, assert the result, save evidence, and clean up resources created by this task. Confirm that the report and captures still exist after cleanup.
+5. Report the generated path, features run, features not run, and missing tools. Passing one feature does not validate the whole map. Preserve startup failure evidence when the environment will not launch.

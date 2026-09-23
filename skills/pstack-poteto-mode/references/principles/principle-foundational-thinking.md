@@ -1,9 +1,9 @@
-# 先确定数据结构与基础设施
+# Foundational Thinking
 
-适用：写逻辑前梳理类型、访问路径和并发共享；先删除废代码，再安排所有后续阶段受益的脚手架。
+When to apply: Before adding logic to a substantial change.
 
-写逻辑前梳理类型、访问路径和并发共享；先删除废代码，再安排所有后续阶段受益的脚手架。
+Identify core types, access patterns, and state shared by concurrent actors. Remove dead code first, then add scaffolding that every later phase actually needs.
 
-边界：不是先建通用框架；原文同样反对为几句相似代码过早抽象。
+Boundary: This is not permission to build a generic framework or abstract a few merely similar lines.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-foundational-thinking/SKILL.md#L7-L21)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-foundational-thinking/SKILL.md#L7-L21)

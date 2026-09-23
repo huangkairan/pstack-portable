@@ -1,17 +1,17 @@
 ---
 name: pstack-teach
-description: "根据源码与实际例子讲解概念，帮助用户建立可检验的理解。"
+description: "Explain what a subsystem is, how it works, and why it exists at the user’s pace."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # teach
 
-1. 根据用户的问题确定需要理解的少数概念，先读取源码建立方向。机制使用 how.md 的调查方法；动机使用 why.md 的历史方法，简单问题只选相关部分，无需调用其他技能。
-2. 将“是什么、如何工作、为何这样做”融为连贯解释，保留历史动机的置信表达。先给最小完整答案，再按用户追问加深；不设测验或强制复述。
-3. 用真实操作展开过程；复杂图解逐步增加部分。空间问题可用当前可用图像/绘图工具，缺工具时用准确图示或文字说明，不假称生成图片。
-4. 输出解释本身，避免交付报告式叙述；不修改实现，不添加无依据的设计动机。
+1. Use the user's question to select the few concepts they need. Read relevant source first. Use the method in how.md for mechanics and why.md for historical motivation; a small question may need only one. No other installed skill is required.
+2. Explain what the thing is, how it works, and why it is built that way in one connected account. Preserve the confidence language of historical findings. Give the smallest complete answer first and deepen it when asked. Do not impose a quiz or forced recap.
+3. Walk through actual operations. Build complex diagrams one part at a time. Use available image or drawing tools for spatial ideas; otherwise use accurate diagrams or prose without claiming to have generated an image.
+4. Deliver the explanation itself rather than a report about the explanation. Do not edit the implementation or invent design motivations.
 
-按流程需要读取：
+Read when this workflow requires it:
 - [how](references/workflows/how.md)
 - [why](references/workflows/why.md)

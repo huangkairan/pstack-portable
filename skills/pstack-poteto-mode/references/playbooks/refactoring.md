@@ -1,3 +1,3 @@
 # refactoring
 
-先用现有行为检查锁定契约，定义结构性收益。按单元迁移调用者并删除被替代路径，避免新旧长期并存。每单元检查，最后验证实际产物行为等价。出现新行为时单独记录并对齐范围；没有减少理解成本就重新评估改动。
+Lock down current behavior with existing checks and state the intended structural benefit. Migrate callers in small units and delete superseded paths rather than maintaining both indefinitely. Check each unit and verify behavior against the real artifact at the end. Record new behavior separately and reconcile scope. Reconsider a refactor that does not reduce reader effort.

@@ -1,9 +1,9 @@
-# 用结构表达领域
+# Model the Domain
 
-适用：有状态逻辑或反复分支时，选择状态机、联合类型、表、reducer 或领域模块，减少非法状态和规则散落。
+When to apply: For stateful logic or repeated branching.
 
-有状态逻辑或反复分支时，选择状态机、联合类型、表、reducer 或领域模块，减少非法状态和规则散落。
+Choose an appropriate state machine, discriminated union, table, reducer, or domain module to keep rules together and illegal states out.
 
-边界：已有局部实现足够清楚就不强加抽象；按领域知识划分，而非机械按执行步骤拆文件。
+Boundary: Do not force an abstraction when a local implementation is already clear. Split by domain knowledge rather than execution steps.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-model-the-domain/SKILL.md#L7-L26)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-model-the-domain/SKILL.md#L7-L26)

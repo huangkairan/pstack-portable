@@ -1,3 +1,3 @@
 # trace-forensics
 
-识别用户提供的采集格式与版本，选现有解析器查询热点、保留链或等待链，映射到已核实源码。有配对采集才做对比；没有符号或对照则明确限制。保留原始采集不覆盖，输出诊断及可重跑分析命令。
+Identify the format and version of the supplied capture. Use an existing parser to query hotspots, retention chains, or waits, then map them to verified source symbols. Compare captures only when a paired baseline exists. State limitations when symbols or a control are absent. Preserve the original capture and report rerunnable analysis commands.

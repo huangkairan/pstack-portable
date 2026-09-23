@@ -1,9 +1,9 @@
-# 把大体量阅读隔离出去
+# Guard the Context Window
 
-适用：大输出与重复阅读挤占窗口时，把原始数据交给子代理，主线程保留摘要；常用模板就地展开，限制阶段规模。
+When to apply: When large outputs and repeated reads crowd the main context.
 
-大输出与重复阅读挤占窗口时，把原始数据交给子代理，主线程保留摘要；常用模板就地展开，限制阶段规模。
+Give bulk raw material to a subagent and keep summaries in the main thread. Expand frequently needed templates locally and limit phase size.
 
-边界：隔离减少主窗口负担，未必减少总 token；仍要检查关键原始证据。
+Boundary: Isolation can reduce main-context load without reducing total tokens. Inspect decisive original evidence yourself.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-guard-the-context-window/SKILL.md#L7-L17)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-guard-the-context-window/SKILL.md#L7-L17)

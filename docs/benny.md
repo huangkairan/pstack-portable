@@ -1,9 +1,9 @@
-# Benny 外部集成边界
+# Benny external integration boundary
 
-原版 setup-benny、triage-issue-reports、reproduce-and-fix-issues 保存在 vendor 中，未注册为日常入口。它们不是仅靠宿主适配就能启动的服务。
+The upstream `setup-benny`, `triage-issue-reports`, and `reproduce-and-fix-issues` skills remain in `vendor`; they are not registered as everyday commands. A host skill adapter alone cannot run them as a service.
 
-实际项目需提供事件输入、可信用户身份、线程定位、去重键、tracker、测试环境凭证与 UI 控制接口。控制接口需覆盖启动、环境检查、定位、操作、状态观察、证据、清理，并能对同一问题重复验证。权限必须由真实工具配置隔离。
+A real integration needs an event source, trusted user identity, thread routing, a deduplication key, an issue tracker, test-environment credentials, and a UI control interface. The control interface must support launch, environment checks, navigation, interaction, state observation, evidence capture, and cleanup. It must support repeated verification of the same issue. Enforce permissions with actual tool configuration.
 
-单次处理契约：接收事件及固定线程坐标，验证身份和授权，查询去重记录，分诊，复现，最小修复，真实验证，记录产物。仅授权范围内回复原线程或创建草稿 PR；重复事件返回已有记录，不能重复写入。不合并、不部署。
+One processing attempt receives an event and a fixed thread coordinate, validates identity and authorization, looks up a deduplication record, triages, reproduces, makes the smallest fix, verifies the real behavior, and records artifacts. Reply in the original thread or open a draft PR only when authorized. A repeated event returns the existing record without repeating external writes. Do not merge or deploy.
 
-本包未连接 Slack/tracker/控制环境，状态为 BLOCKED_EXTERNAL_INTEGRATION。没有模拟接口或声称已上线。
+This package connects to no Slack, tracker, or control environment. Its status is `BLOCKED_EXTERNAL_INTEGRATION`; no interface or production service is simulated.

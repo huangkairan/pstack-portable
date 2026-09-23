@@ -1,9 +1,9 @@
-# Codex 适配
+# Codex adapter
 
-使用原生 skills，显式调用 $pstack-<能力>。当前入口目录里的 references 是普通参考材料，可以直接读取，不要求宿主安装其他技能。默认允许按任务选择；技能不扩大当前用户授权。
+Use native skills. Explicit invocation is `$pstack-<capability>`. References in the current skill directory are ordinary files and require no other installed skill. A skill does not expand the user's authorization.
 
-此技能在独立调查、多候选或独立审查流程中明确请求子代理工作。使用当前会话实际暴露的委派、等待、消息与取消工具；不把 Cursor Task 参数粘到工具调用。宿主不提供委派时披露限制；可串行调查，但不能伪称独立评审。默认继承父模型和当前权限；模型覆盖只在宿主和当前指令允许时使用。
+For investigation, candidate comparison, or independent review, explicitly request subagent work. Use the delegation, wait, message, and cancel tools actually exposed in the current session. Do not paste Cursor Task parameters into tool calls. If delegation is unavailable, disclose the limitation. Serial investigation is possible, but do not present it as independent review. Inherit the parent model and current permissions. Choose another model only when the host and current instructions allow it.
 
-项目安装器写入 .codex/agents/poteto-agent.toml 和 pstack-reviewer.toml；只读 reviewer 使用 read-only sandbox。插件发现不等于这些角色已注册，缺少角色时使用宿主原生子代理并遵守现有权限。不得通过关闭沙箱补足能力。
+The project installer places `poteto-agent.toml` and `pstack-reviewer.toml` in `.codex/agents/`; the latter requests a read-only sandbox. Plugin discovery alone does not prove these profiles are registered. If a named profile is unavailable, use the host's native subagent with the role instructions and existing permissions. Do not disable the sandbox to compensate.
 
-生成项目技能使用 .agents/skills/verify-<项目>/。只读取当前任务明确范围内的记录或交接摘要。长期任务依赖宿主实际可用调度，缺少则保存 checkpoint 并明确尚未实现后台续跑。本包不修改全局规则、不启用 hooks、不创建定时任务。
+Generate project verification skills in `.agents/skills/verify-<project>/`. Read only records or handoff summaries explicitly in this task's scope. Durable tasks depend on actual host scheduling; otherwise save a checkpoint and state that background continuation is unavailable. This package does not change global rules, enable hooks, or schedule tasks.

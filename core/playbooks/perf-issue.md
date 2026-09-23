@@ -1,3 +1,3 @@
 # perf-issue
 
-固定负载、版本、机器与测量方法，采集基线。查 trace 后形成一个可证伪假设，考虑消除工作、批处理、缓存、数据局部性、并行、调度、算法、表示方式等候选。改动后同方法复测并报告 baseline/after/delta、噪声与回归。不从代码推算未测吞吐。
+Fix the workload, revision, machine, and measurement method, then collect a baseline. Use a trace to form a falsifiable hypothesis. Consider removing work, batching, caching, locality, parallelism, scheduling, algorithms, and representation as alternatives, not as mandatory steps. Repeat the same measurement after the change and report baseline, after, delta, noise, and regressions. Never infer unmeasured throughput from source alone.

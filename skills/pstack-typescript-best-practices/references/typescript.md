@@ -1,10 +1,10 @@
-# TypeScript 具体规则
+# TypeScript rules
 
-- 用判别联合表达变体；确有混用风险的 primitive 用品牌类型，边界验证后构造。
-- 非空、成对、范围等不变量尽量由结构表达；普通数组操作仍然是全函数时保留简单数组类型。
-- 外部输入为 unknown；优先复用项目 schema 库并从 schema 推导类型。
-- 按判别字段、in、typeof/instanceof、真实验证的类型守卫依次缩窄；断言不能掩盖未验证输入。
-- 穷尽分支用 never 检查；需要保持字面量时优先 satisfies；使用 Pick/Omit/ReturnType 等派生已有契约。
-- 边界解析成领域类型，内部信任类型，不逐层传递任意字典。
-- 多参数公开接口可用对象参数；热路径按项目现有性能约束决定。
-- 运行真实行为测试，日志使用项目结构化工具。类型检查不能代替真实 UI 验证。
+- Use discriminated unions for variants. Brand primitives when mixing them would be dangerous, and construct branded values only after boundary validation.
+- Express non-empty, paired, and range invariants structurally when needed. Keep ordinary arrays when all operations on them remain total.
+- Treat external input as unknown. Reuse the project's schema library and derive types from its schemas.
+- Narrow with discriminants first, then `in`, `typeof` or `instanceof`, and truthful type guards. An assertion cannot replace validation.
+- Check exhaustive branches with `never`. Prefer `satisfies` when literal types must remain narrow. Derive existing contracts with `Pick`, `Omit`, `ReturnType`, and similar utilities.
+- Parse inputs into domain types at boundaries and trust those types internally. Do not pass unbounded dictionaries through every layer.
+- Object parameters can clarify public multi-argument APIs; account for the project's performance constraints on hot paths.
+- Run behavioral tests against real code and use the project's structured logging. A type check does not prove the UI works.

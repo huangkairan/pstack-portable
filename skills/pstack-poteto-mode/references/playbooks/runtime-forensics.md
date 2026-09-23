@@ -1,3 +1,3 @@
 # runtime-forensics
 
-明确诊断范围、目标进程和允许的采集方式。先使用已有 CPU/heap/日志观测，再缩到热函数或持有链。动态插桩会改变运行状态，只有当前授权覆盖时执行并清理。输出采集物、源码映射、验证的机制与未知项；诊断请求不直接实施修复。
+Define the diagnostic scope, process, and permitted data collection. Start with available CPU, heap, and log observations, then narrow to hot functions or retention paths. Runtime instrumentation changes process state; perform and clean it up only when authorized. Return captures, source mapping, verified mechanism, and unknowns. A diagnosis request does not authorize a fix.

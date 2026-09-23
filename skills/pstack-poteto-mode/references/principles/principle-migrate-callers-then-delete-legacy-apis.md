@@ -1,9 +1,9 @@
-# 迁移调用方后删除旧 API
+# Migrate Callers, Then Delete Legacy APIs
 
-适用：盘点所有调用方，在同一改造波次迁移并删除旧接口，更新契约测试。
+When to apply: When changing an internal API.
 
-盘点所有调用方，在同一改造波次迁移并删除旧接口，更新契约测试。
+Inventory callers, migrate them in the same change, delete the old interface, and update contract tests.
 
-边界：原文明示：仅限无外部兼容用户且可承受协调破坏的内部 API；不能套到公开 API。
+Boundary: Apply only when there are no external compatibility consumers and the coordination cost is acceptable. Do not silently apply this to public APIs.
 
-[上游原文](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md#L7-L22)
+[Upstream source](https://github.com/cursor/plugins/blob/53e579f1481697931fc44f5445171397cfa2b24b/pstack/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md#L7-L22)

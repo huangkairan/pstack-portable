@@ -1,3 +1,3 @@
 # hillclimb
 
-明确指标、目标、预算与停止条件。证明量具能区分已知差异再冻结负载；每轮一个假设、一个变更、一次可比测量。仅跨过噪声且回归通过才保留；其余撤回本轮改动，不覆盖用户修改。记录决策与证据。预算耗尽或无高价值实验时报告当前最好结果，不偷换目标为已达成。
+Define the metric, target, budget, and stop condition. Show that the instrument detects a known difference, then freeze the workload. Run one hypothesis, one change, and one comparable measurement per round. Keep a change only when improvement exceeds noise and regressions pass. Otherwise revert only your own round, preserving user edits. Record decisions and evidence. If the budget ends or experiments lose value, report the best measured result without claiming the target was reached.

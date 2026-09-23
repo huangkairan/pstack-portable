@@ -1,13 +1,13 @@
 ---
 name: pstack-how
-description: "从源码解释机制、调用链、数据归属和模块边界；适用于理解系统或修改前调查。"
+description: "Explain a system mechanism, call chain, data ownership, or module boundary from source."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # how
 
-1. 明确问题、入口、输出和范围。单模块问题自己读取调用者、实现和测试；范围不明时先用最小解释，不修改实现。
-2. 跨模块问题拆成 2–4 个独立切面，按宿主适配说明委派只读调查。每位调查者返回入口、调用链、数据变化、边界、已读文件与未知项。无委派能力时串行覆盖并说明。
-3. 用实际源码交叉核对不一致处。区分静态推断与运行观察，解释设计动机需要历史证据，不能从现状倒推出作者意图。
-4. 输出机制概览、关键概念、运行步骤、文件/符号定位、边界和未核实项。引用读取过的具体路径与行号，不堆砌源码。
+1. Define the question, entry point, expected output, and scope. For a single-module question, read its callers, implementation, and tests yourself. When scope is unclear, start with the smallest useful interpretation. Keep this workflow read-only.
+2. For a cross-module question, divide the system into two to four distinct angles and delegate read-only exploration through the host adapter. Each explorer reports the entry point, call chain, data changes, boundaries, files read, and unknowns. If delegation is unavailable, cover the angles serially and say so.
+3. Check conflicting findings against actual source. Separate static inference from observed runtime behavior. Design motivation requires historical evidence; do not infer author intent from the current implementation alone.
+4. Explain the mechanism, key concepts, execution path, file and symbol locations, boundaries, and unresolved points. Cite paths and lines you actually read without dumping annotated source.

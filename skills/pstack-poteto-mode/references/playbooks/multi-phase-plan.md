@@ -1,3 +1,3 @@
 # multi-phase-plan
 
-仅产出计划时不实施。写整体完成条件、基线、阶段依赖、每阶段真实验证和交付物，必要时先做获授权的小实验解决事实问题。验证 lanes 按项目风险选择，不固定模型或数量。可将结构写成 plan.json 并运行 scripts/check_plan.py；结构校验不证明步骤已执行。待用户要求实施时继续。
+For a plan-only request, define overall completion criteria, baseline, stage dependencies, actual verification for each stage, and deliverables. Use a small authorized experiment if it resolves an empirical question. Choose verification lanes based on project risk rather than a fixed model or lane count. You may write plan.json and run scripts/check_plan.py; structural validation does not prove a stage ran. Continue implementation when the user requests it.

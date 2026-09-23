@@ -1,13 +1,13 @@
 ---
 name: pstack-no-comments
-description: "在用户要求精简注释时，将可由代码表达的解释落实为命名与结构。"
+description: "Replace redundant code narration with clearer code while preserving valuable rationale and directives."
 ---
 
-先读取 [执行契约](references/contracts.md) 与 [宿主适配](references/host.md)，再按下列流程执行。
+Read the [execution contract](references/contracts.md) and [host adapter](references/host.md) before following this workflow.
 
 # no-comments
 
-1. 检查变更范围中的注释，分类为复述代码、非显然原因、协议/兼容限制、文档、许可证或工具指令。
-2. 对复述代码的注释先改善命名或结构，再删除重复说明。保留仍不能由代码清楚表达的原因。
-3. 保留许可证、生成器标记、编译器/linter 指令、公共 API 文档和有证据的约束。不能为了零注释破坏语义或扩大重构。
-4. 检查 diff 并运行受影响验证。输出具体替换和保留理由，不将该流程设为每次审查前置。
+1. Review comments in the changed scope. Classify code narration, non-obvious rationale, protocol or compatibility constraints, documentation, license text, and tool directives.
+2. Improve naming or structure before removing comments that merely repeat the code. Keep rationale the code cannot express clearly.
+3. Preserve licenses, generator markers, compiler and linter directives, public API documentation, and evidenced constraints. Do not break behavior or widen the refactor to pursue zero comments.
+4. Inspect the diff and run affected checks. Report what changed and why important comments remain. Do not make this workflow a mandatory step before every review.
