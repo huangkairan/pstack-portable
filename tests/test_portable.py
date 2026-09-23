@@ -35,6 +35,19 @@ class PlanTests(unittest.TestCase):
 
 
 class InstallTests(unittest.TestCase):
+    def test_claude_global_install_uses_home_skills_and_agents(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            with patch('install.Path.home', return_value=home):
+                install('claude-code', global_install=True)
+                skill = home / '.claude/skills/pstack-how/SKILL.md'
+                agent = home / '.claude/agents/pstack-reviewer.md'
+                self.assertTrue(skill.is_file())
+                self.assertTrue(agent.is_file())
+                install('claude-code', global_install=True)
+                self.assertTrue(skill.is_file())
+            self.assertFalse((home / '.agents').exists())
+
     def test_both_hosts_install_and_update_preserving_foreign_skills(self):
         for host, directory in [('codex', '.agents'), ('claude-code', '.claude')]:
             with self.subTest(host=host), tempfile.TemporaryDirectory() as tmp:

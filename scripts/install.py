@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""安装到指定项目；冲突不覆盖，写入失败回滚，不修改源包。"""
+"""安装到指定项目或 Claude Code 全局目录；冲突不覆盖，失败回滚。"""
 import argparse
 import hashlib
 import json
@@ -27,8 +27,15 @@ def reject_symlinks(path, project):
         current = current.parent
 
 
-def install(host, project):
-    project = Path(project).resolve()
+def install(host, project=None, global_install=False):
+    if global_install:
+        if host != 'claude-code':
+            raise ValueError('目前仅支持 Claude Code 全局安装')
+        project = Path.home().resolve()
+    elif project is None:
+        raise ValueError('项目安装需要 --project')
+    else:
+        project = Path(project).resolve()
     if not project.is_dir():
         raise ValueError('项目目录必须已存在')
     native = '.claude' if host == 'claude-code' else '.agents'
@@ -98,15 +105,18 @@ def install(host, project):
             for directory in reversed(created_dirs):
                 if directory.exists() and not any(directory.iterdir()): directory.rmdir()
             raise
-    print(f'已安装 {len(targets)} 项到 {project}，请在该项目启动新会话')
+    scope = '全局' if global_install else '项目'
+    print(f'已将 {len(targets)} 项安装到 {scope}目录 {project / native}，请启动新的 Claude Code 会话' if host == 'claude-code' else f'已将 {len(targets)} 项安装到 {scope}目录 {project / native}，请在该项目启动新会话')
 
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--host', required=True, choices=['codex', 'claude-code'])
-    p.add_argument('--project', required=True, type=Path)
+    destination = p.add_mutually_exclusive_group(required=True)
+    destination.add_argument('--project', type=Path)
+    destination.add_argument('--global', dest='global_install', action='store_true')
     args = p.parse_args()
     try:
-        install(args.host, args.project)
+        install(args.host, args.project, args.global_install)
     except (ValueError, OSError) as e:
         p.exit(1, f'安装未完成: {e}\n')

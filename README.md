@@ -6,9 +6,23 @@ Lauren Tan 的 [pstack](https://github.com/cursor/plugins/tree/main/pstack) 的�
 
 这是有明确行为调整的移植，不是原版逐字复制。原始资料在 `vendor/pstack`，不作为运行指令加载。完整来源与状态见 [coverage.json](docs/coverage.json)，实测范围见 [验证记录](docs/validation.md)。
 
+## 全局安装到 Claude Code
+
+需要 Python 3.9+。在克隆仓库后只运行一次，之后各项目的新 Claude Code 会话都能使用：
+
+```bash
+git clone git@github.com:huangkairan/pstack-portable.git
+cd pstack-portable
+python3 scripts/install.py --host claude-code --global
+```
+
+全局安装写入 `~/.claude/skills/pstack-*`、`~/.claude/agents/poteto-agent.md` 和 `~/.claude/agents/pstack-reviewer.md`，安装记录是 `~/.claude/pstack-portable-installed.json`。已有同名外来技能或代理会阻止安装，不会覆盖。更新仓库后重跑安装命令即可；若修改过已安装的技能，安装器会保留该修改并拒绝覆盖。
+
+启动新的 `claude` 会话后输入 `/pstack-poteto-mode`，或直接使用 `/pstack-how`、`/pstack-tdd` 等入口。全局版与项目版装在同一个项目时可能出现同名入口，请为该项目保留一处安装。
+
 ## 安装到项目
 
-需要 Python 3.9+ 和已登录的目标宿主。安装器只写指定项目，不改用户全局设置；发现同名外来技能或本地修改时拒绝覆盖。
+项目级安装仍可用于只给某个项目启用。需要 Python 3.9+ 和已登录的目标宿主；发现同名外来技能或本地修改时拒绝覆盖。
 
 ```bash
 git clone git@github.com:huangkairan/pstack-portable.git

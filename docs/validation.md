@@ -6,13 +6,14 @@
 
 | 验证面 | 结果 | 证明范围 |
 |---|---|---|
-| 移植测试 | 14 项通过 | 两宿主安装与更新、外来文件冲突、本地修改保护、符号链接防护、写入/记录提交失败回滚、计划依赖、带空格 worktree、资源链接与上游覆盖 |
+| 移植测试 | 15 项通过 | 两宿主项目安装、Claude Code 全局安装与更新、外来文件冲突、本地修改保护、符号链接防护、写入/记录提交失败回滚、计划依赖、带空格 worktree、资源链接与上游覆盖 |
 | 保留的工具 | 52 项通过，206 次断言 | orch 账本与 CLI、watch-pr 策略/解析/CLI；外部 GitHub/Graphite 使用测试替身 |
 | TypeScript | 类型检查通过 | watch-pr 上游 tsconfig 指定的检查范围 |
 | 打包 | 24 个技能通过 quick_validate；Codex 清单与 Claude 原生 plugin validate 通过 | 格式与清单，不等于所有技能行为已实测 |
 | Codex TDD | 通过 | 实际读取 pstack-tdd、先新增失败回归、再修实现、3 个测试通过 |
 | Claude TDD | 通过 | 原生 Skill 调用 pstack-tdd、读取契约与适配、先失败、后修复、4 个测试通过 |
 | Claude 插件委派 | 通过 | 原生插件发现，2 个 pstack-portable:pstack-reviewer 启动并完成，只读不同文件 |
+| Claude 全局技能发现 | 通过 | 在新会话中调用 /pstack-how，实际读取 ~/.claude/skills/pstack-how 的契约与宿主适配，并读取隔离项目 calc.py |
 | Codex 委派 | 通过 | 2 次原生 spawn；两份独立子会话各读取一个目标文件并产生 final_answer/task_complete；父会话等待并汇总 |
 
 两边 TDD 的外部复核另外检查空购物车、超额折扣、正常折扣与正常小计，全部通过。原有正常行为检查保留。只有 cart.py 和 test_cart.py 产生 tracked diff。
